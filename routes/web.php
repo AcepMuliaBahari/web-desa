@@ -62,8 +62,6 @@ Route::get('/organisasi', [VillageOfficialController::class, 'organization'])->n
 
 Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm.index');
 Route::get('/umkm/{umkm}', [UmkmController::class, 'show'])->name('umkm.show');
-// Landing Page Routes
-// Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
 
 // Public Routes
 Route::name('regulations.')->group(function() {

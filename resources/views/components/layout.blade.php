@@ -38,6 +38,10 @@
             </main>
         </div>
 
+        <!-- Preloader -->
+       @include('components.loader')
+
+
         <!-- Footer -->
         @include('components.footer')
 
@@ -63,6 +67,18 @@
         s0.parentNode.insertBefore(s1,s0);
         })();
         </script>
+
         <!--End of Tawk.to Script-->
+        <!-- <script>
+    window.addEventListener("load", function () {
+        setTimeout(() => {
+            document.getElementById("preloader").classList.add("opacity-0");
+            setTimeout(() => {
+                document.getElementById("preloader").style.display = "none";
+            }, 300);
+        },300);
+    });
+</script> -->
+
 </body>
 </html> 

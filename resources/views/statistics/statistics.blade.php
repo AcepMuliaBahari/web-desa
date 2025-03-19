@@ -17,7 +17,7 @@
                 <div class="max-w-3xl animate-fade-up">
                     <h1 class="text-5xl font-bold text-white mb-6">Data Statistik Desa Pasirpanjang</h1>
                     <p class="text-xl text-blue-100 leading-relaxed">
-                        Informasi terkini mengenai data penduduk, APBDes, Status IDM, dan Status SDGs untuk transparansi dan akuntabilitas pembangunan desa.
+                        Informasi terkini mengenai data penduduk, APBDes, Status IDM, dan Status SDGs untuk transparansi dan akuntabilitas desa.
                     </p>
                 </div>
             </div>

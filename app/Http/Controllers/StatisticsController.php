@@ -1,62 +1,71 @@
 <?php
 
 namespace App\Http\Controllers;
-
+ 
 use Illuminate\Http\Request;
+use App\Models\Statistics\Population; 
+use App\Models\Statistics\Apbdes; 
+use App\Models\Statistics\Idm;
+use App\Models\Statistics\Sdgs;
+
 
 class StatisticsController extends Controller
 {
     public function index()
     {
-        // Data Penduduk
+        // Fetching Data Penduduk from the Population model
+        $populationData = Population::first();
         $totalPendudukData = [
-            'laki_laki' => 800,
-            'perempuan' => 700,
-            'usia_0_14' => 300,
-            'usia_15_64' => 1000,
-            'usia_65_plus' => 200,
-            'pendidikan_sd' => 400,
-            'pendidikan_smp' => 300,
-            'pendidikan_sma' => 500,
-            'pendidikan_pt' => 300,
+            'laki_laki' => $populationData->laki_laki ?? 0,
+            'perempuan' => $populationData->perempuan ?? 0,
+            'usia_0_14' => $populationData->usia_0_14 ?? 0,
+            'usia_15_64' => $populationData->usia_15_64 ?? 0,
+            'usia_65_plus' => $populationData->usia_65_plus ?? 0,
+            'pendidikan_sd' => $populationData->pendidikan_sd ?? 0,
+            'pendidikan_smp' => $populationData->pendidikan_smp ?? 0,
+            'pendidikan_sma' => $populationData->pendidikan_sma ?? 0,
+            'pendidikan_pt' => $populationData->pendidikan_pt ?? 0,
         ];
-        $totalPenduduk = 1500;
+        $totalPenduduk = $populationData->laki_laki + $populationData->perempuan; // Calculate total population
 
-        // Data APBDes
+        // Fetching Data APBDes from the Apbdes model
+        $apbdesData = Apbdes::where('tahun', date('Y'))->first();
         $apbdesData = [
-            'pendapatan' => 10000000000,
-            'dana_desa' => 8000000000,
-            'pad' => 1000000000,
-            'bantuan' => 1000000000,
-            'belanja' => 9500000000,
-            'belanja_pembangunan' => 5000000000,
-            'belanja_operasional' => 4000000000,
-            'belanja_takterduga' => 500000000,
-            'dokumen_url' => '/storage/documents/apbdes-2024.pdf'
+            'pendapatan' => $apbdesData->pendapatan ?? 0,
+            'dana_desa' => $apbdesData->dana_desa ?? 0,
+            'pad' => $apbdesData->pad ?? 0,
+            'bantuan' => $apbdesData->bantuan ?? 0,
+            'belanja' => $apbdesData->belanja ?? 0,
+            'belanja_pembangunan' => $apbdesData->belanja_pembangunan ?? 0,
+            'belanja_operasional' => $apbdesData->belanja_operasional ?? 0,
+            'belanja_takterduga' => $apbdesData->belanja_takterduga ?? 0,
+            'dokumen_url' => $apbdesData->dokumen_url ?? null
         ];
 
-        // Data Status IDM
+        // Fetching Data IDM from the Idm model
+        $statusIdmData = Idm::where('tahun', date('Y'))->first();
         $statusIdmData = [
-            'skor' => 0.7234,
-            'status' => 'Berkembang',
-            'sosial' => 75.5,
-            'ekonomi' => 68.2,
-            'lingkungan' => 73.4
+            'skor' => $statusIdmData->skor ?? 0,
+            'status' => $statusIdmData->status ?? 'Tidak ada data',
+            'sosial' => $statusIdmData->sosial ?? 0,
+            'ekonomi' => $statusIdmData->ekonomi ?? 0,
+            'lingkungan' => $statusIdmData->lingkungan ?? 0
         ];
 
-        // Data Status SDGs
-        $statusSdgsData = [
-            'goals' => [
-                ['nomor' => 1, 'nama' => 'Tanpa Kemiskinan', 'status' => 'Dalam Proses', 'persentase' => 75],
-                ['nomor' => 2, 'nama' => 'Tanpa Kelaparan', 'status' => 'Tercapai', 'persentase' => 90],
-                // Tambahkan goals lainnya
-            ],
-            'summary' => [
-                'tercapai' => 5,
-                'dalam_proses' => 8,
-                'belum_tercapai' => 4
-            ]
-        ];
+
+
+
+            // Sdgs
+            $sdgs = Sdgs::where('tahun', date('Y'))->first();
+
+            $statusSdgsData = [
+                'goals' => $sdgs->goals ?? [],
+                'summary' => $sdgs->summary ?? [
+                    'tercapai' => 0,
+                    'dalam_proses' => 0,
+                    'belum_tercapai' => 0
+                ]
+            ];
 
         return view('statistics.statistics', compact(
             'totalPenduduk',
@@ -66,4 +75,5 @@ class StatisticsController extends Controller
             'statusSdgsData'
         ));
     }
+
 }

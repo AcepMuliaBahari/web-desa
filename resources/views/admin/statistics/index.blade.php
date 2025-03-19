@@ -22,6 +22,15 @@
                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                     {{ number_format($totalPenduduk ?? 0, 0, ',', '.') }} Jiwa
                 </p>
+                <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    Total APBDes: Rp {{ number_format($totalApbdes ?? 0, 0, ',', '.') }}
+                </p>
+                <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    Status IDM: {{ $statusIdm }}
+                </p>
+                <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    Total Goals Tercapai: {{ $totalGoalsTercapai }} / 17 Goals
+                </p>
             </div>
         </a>
 

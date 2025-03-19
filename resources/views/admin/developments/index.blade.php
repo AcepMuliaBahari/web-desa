@@ -59,9 +59,9 @@
                     <td class="px-4 py-3">{{ $development->location }}</td>
                     <td class="px-4 py-3">
                         @if($development->photo)
-                            <img src="{{ Storage::url($development->file_path) }}" alt="{{ $development->title }}" class="w-24 h-24 object-cover rounded-lg">
-                        @endif
-                    </td> 
+                            <img src="{{ $development->photo_url }}" alt="{{ $development->title }}" class="w-20 h-20 object-cover rounded-lg">
+                        @endif 
+                    </td>
                     <td class="px-4 py-3">Rp {{ number_format($development->budget, 0, ',', '.') }}</td>
                     <td class="px-4 py-3">
                         <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">

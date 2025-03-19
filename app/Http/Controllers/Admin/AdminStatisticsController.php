@@ -8,14 +8,19 @@ use App\Models\Statistics\{
     Population,
     Apbdes,
     Idm,
-    Sdgs
+    Sdgs,
 };
 
 class AdminStatisticsController extends Controller
 {
     public function index()
     {
-        return view('admin.statistics.index');
+        $totalPenduduk = Population::sum('laki_laki') + Population::sum('perempuan');
+        $totalApbdes = Apbdes::where('tahun', date('Y'))->sum('pendapatan');
+        $statusIdm = Idm::where('tahun', date('Y'))->first()->status ?? 'Belum ada data';
+        $totalGoalsTercapai = Sdgs::where('tahun', date('Y'))->first()->summary['tercapai'] ?? 0;
+
+        return view('admin.statistics.index', compact('totalPenduduk', 'totalApbdes', 'statusIdm', 'totalGoalsTercapai'));
     }
 
     public function penduduk()
@@ -107,39 +112,38 @@ class AdminStatisticsController extends Controller
             ->with('success', 'Data IDM berhasil diperbarui');
     }
 
-    public function sdgs()
-    {
-        $data = Sdgs::where('tahun', date('Y'))->first();
-        return view('admin.statistics.sdgs', compact('data'));
-    }
+                public function sdgs()
+            {
+                $data = Sdgs::where('tahun', date('Y'))->first();
+                return view('admin.statistics.sdgs', compact('data'));
+            }
 
-    public function updateSdgs(Request $request)
-    {
-        $validated = $request->validate([
-            'goals' => 'required|array',
-            'goals.*.nomor' => 'required|integer|between:1,17',
-            'goals.*.nama' => 'required|string',
-            'goals.*.status' => 'required|in:Tercapai,Dalam Proses,Belum Tercapai',
-            'goals.*.persentase' => 'required|numeric|between:0,100',
-        ]);
+            public function updateSdgs(Request $request)
+            {
+                $validated = $request->validate([
+                    'goals' => 'required|array',
+                    'goals.*.nomor' => 'required|integer|between:1,17',
+                    'goals.*.nama' => 'required|string',
+                    'goals.*.status' => 'required|in:Tercapai,Dalam Proses,Belum Tercapai',
+                    'goals.*.persentase' => 'required|numeric|between:0,100',
+                ]);
 
-        // Hitung summary
-        $summary = [
-            'tercapai' => collect($validated['goals'])->where('status', 'Tercapai')->count(),
-            'dalam_proses' => collect($validated['goals'])->where('status', 'Dalam Proses')->count(),
-            'belum_tercapai' => collect($validated['goals'])->where('status', 'Belum Tercapai')->count(),
-        ];
+                $summary = [
+                    'tercapai' => collect($validated['goals'])->where('status', 'Tercapai')->count(),
+                    'dalam_proses' => collect($validated['goals'])->where('status', 'Dalam Proses')->count(),
+                    'belum_tercapai' => collect($validated['goals'])->where('status', 'Belum Tercapai')->count(),
+                ];
 
-        Sdgs::updateOrCreate(
-            ['tahun' => date('Y')],
-            [
-                'goals' => $validated['goals'],
-                'summary' => $summary,
-                'tahun' => date('Y')
-            ]
-        );
+                Sdgs::updateOrCreate(
+                    ['tahun' => date('Y')],
+                    [
+                        'goals' => $validated['goals'],
+                        'summary' => $summary,
+                        'tahun' => date('Y')
+                    ]
+                );
 
-        return redirect()->route('admin.statistics.sdgs')
-            ->with('success', 'Data SDGs berhasil diperbarui');
-    }
+                return redirect()->route('admin.statistics.sdgs')
+                    ->with('success', 'Data SDGs berhasil diperbarui');
+                }
 }

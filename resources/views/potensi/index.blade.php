@@ -75,18 +75,7 @@
                 </div>
             </section>
 
-            <!-- Galeri Section -->
-            <section id="galeri" class="mb-24 scroll-mt-20 animate-fade-up">
-                <div class="max-w-7xl mx-auto">
-                    <div class="flex items-center mb-8">
-                        <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
-                            <i class="fas fa-images text-2xl text-green-600 dark:text-green-400"></i>
-                        </div>
-                        <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Galeri</h2>
-                    </div>
-                    @include('components.potensi.galeri')
-                </div>
-            </section>
+ 
 
             <!-- Pembangunan Section -->
             <section id="pembangunan" class="mb-24 scroll-mt-20 animate-fade-up">
@@ -101,6 +90,18 @@
                 </div>
             </section>
 
+                       <!-- Galeri Section -->
+                <section id="galeri" class="mb-24 scroll-mt-20 animate-fade-up">
+                <div class="max-w-7xl mx-auto">
+                    <div class="flex items-center mb-8">
+                        <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-images text-2xl text-green-600 dark:text-green-400"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Galeri</h2>
+                    </div>
+                    @include('components.potensi.galeri')
+                </div>
+            </section>
             <!-- Pengaduan Section -->
             {{-- <section id="pengaduan" class="mb-24 scroll-mt-20 animate-fade-up">
                 <div class="max-w-7xl mx-auto">

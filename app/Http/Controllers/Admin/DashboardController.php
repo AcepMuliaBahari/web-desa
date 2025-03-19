@@ -5,7 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\{
     News, Complaint, Letter, Citizen, VillageOfficial, 
-    VillageProfile, PublicService, Umkm, Finance, Event,
+    VillageProfile, PublicService, Umkm, Finance, Event,Gallery,
+};
+use App\Models\Statistics\{
+    Population,
+    Apbdes,
+    Idm,
+    Sdgs,
 };
 use Illuminate\Support\Facades\Auth;
 
@@ -38,20 +44,17 @@ class DashboardController extends Controller
             ->take(6)
             ->get();
 
-        // Data Penduduk
-        $totalCitizens = Citizen::count();
-        $totalFamilies = Citizen::distinct('no_kk')->count();
 
-        // Data Surat
-        $totalLetters = Letter::count();
-        $approvedLetters = Letter::where('status', 'approved')->count();
-        $rejectedLetters = Letter::where('status', 'rejected')->count();
-        $pendingLetters = Letter::where('status', 'pending')->count();
+        $totalPenduduk = Population::sum('laki_laki') + Population::sum('perempuan');
+        $totalApbdes = Apbdes::where('tahun', date('Y'))->sum('pendapatan');
+        $statusIdm = Idm::where('tahun', date('Y'))->first()->status ?? 'Belum ada data';
+        $totalGoalsTercapai = Sdgs::where('tahun', date('Y'))->first()->summary['tercapai'] ?? 0;
 
         return view('admin.dashboard', compact(
             'latestNews', 'officials', 'umkm', 'gallery',
-            'totalCitizens', 'totalFamilies',
-            'totalLetters', 'approvedLetters', 'rejectedLetters', 'pendingLetters'
+      
+
+            'totalPenduduk', 'totalApbdes', 'statusIdm', 'totalGoalsTercapai'
         ));
     }
 } 

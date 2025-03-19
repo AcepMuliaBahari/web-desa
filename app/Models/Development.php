@@ -35,19 +35,24 @@ class Development extends Model
     }
 
     protected $casts = [
-        'start_date' => 'datetime',       // Sesuaikan dengan tipe date di migration
-        'end_date' => 'datetime',         // (bukan datetime)
+        'start_date' => 'datetime',      
+        'end_date' => 'datetime',       
         'budget' => 'decimal:2',
         'progress' => 'integer',
     ];
 
-    // Accessor untuk URL foto lengkap (jika diperlukan)
-    protected function photoUrl(): Attribute
+
+    public function getPhotoUrlAttribute()
     {
-        return Attribute::make(
-            get: fn ($value, $attributes) => $attributes['photo'] 
-                ? asset($attributes['photo'])
-                : null,
-        );
+        return $this->photo ? asset('storage/' . $this->photo) : asset('images/no-image.jpg');
     }
+    // Accessor untuk URL foto lengkap (jika diperlukan)
+    // protected function photoUrl(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn ($value, $attributes) => $attributes['photo'] 
+    //             ? asset($attributes['photo'])
+    //             : null,
+    //     );
+    // }
 }

@@ -9,7 +9,7 @@ class Sdgs extends Model
     protected $fillable = [
         'goals',
         'summary',
-        'tahun'
+        'tahun',
     ];
 
     protected $casts = [

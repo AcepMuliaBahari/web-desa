@@ -7,7 +7,7 @@
     </div>
 
     <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center h-16">
+        <div class="flex justify-center items-center h-16">
             <!-- Menu Section -->
             <div class="flex-1">
                 @include('components.navbar.menu')

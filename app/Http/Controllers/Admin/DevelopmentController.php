@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Development;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage; // Tambahkan ini
+use Illuminate\Support\Facades\Storage; 
 
 class DevelopmentController extends Controller
 {
@@ -39,8 +39,8 @@ class DevelopmentController extends Controller
 
         // Handle upload foto
         if ($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('public/developments');
-            $validated['photo'] = Storage::url($path);
+            $path = $request->file('photo')->store('developments', 'public');
+            $validated['photo'] = $path;
         }
 
         Development::create($validated);
