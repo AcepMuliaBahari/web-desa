@@ -59,7 +59,7 @@ Route::get('/ppid', [PPIDController::class, 'index'])->name('ppid.index');
 // Organization Routes
 Route::get('/organisasi', [VillageOfficialController::class, 'organization'])->name('organization.index');
 
-Route::get('/potensi-desa', [PotentialController::class, 'index'])->name('potentials.index');
+
 Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm.index');
 Route::get('/umkm/{umkm}', [UmkmController::class, 'show'])->name('umkm.show');
 // Landing Page Routes
