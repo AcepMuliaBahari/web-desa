@@ -10,6 +10,9 @@
                             <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">{{ $development->title }}</h3>
                             <p class="text-gray-600 dark:text-gray-300">{{ $development->description }}</p>
                         </div>
+                        <div class="flex-1">
+                            <img src="{{ asset('storage/' . $development->photo) }}" alt="{{ $development->title }}" class="w-24 h-24 object-cover rounded-lg">
+                        </div>
                         <div class="flex items-center gap-4">
                             <span class="px-4 py-1 rounded-full text-sm font-medium
                                 {{ $development->status === 'Selesai' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 

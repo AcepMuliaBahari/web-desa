@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Development;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage; // Tambahkan ini
 
 class DevelopmentController extends Controller
 {
@@ -32,8 +33,15 @@ class DevelopmentController extends Controller
             'status' => 'required|string|in:' . implode(',', Development::getStatuses()),
             'location' => 'required|string',
             'pic_name' => 'required|string|max:255',
-            'pic_contact' => 'required|string|max:20'
+            'pic_contact' => 'required|string|max:20',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048' // Tambahkan validasi foto
         ]);
+
+        // Handle upload foto
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('public/developments');
+            $validated['photo'] = Storage::url($path);
+        }
 
         Development::create($validated);
 
@@ -65,8 +73,21 @@ class DevelopmentController extends Controller
             'status' => 'required|string|in:' . implode(',', Development::getStatuses()),
             'location' => 'required|string',
             'pic_name' => 'required|string|max:255',
-            'pic_contact' => 'required|string|max:20'
+            'pic_contact' => 'required|string|max:20',
+            'photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048' // Ubah menjadi sometimes untuk update
         ]);
+
+        // Handle update foto
+        if ($request->hasFile('photo')) {
+            // Hapus foto lama jika ada
+            if ($development->photo) {
+                $oldPhoto = str_replace('/storage', 'public', $development->photo);
+                Storage::delete($oldPhoto);
+            }
+            
+            $path = $request->file('photo')->store('public/developments');
+            $validated['photo'] = Storage::url($path);
+        }
 
         $development->update($validated);
 
@@ -77,10 +98,16 @@ class DevelopmentController extends Controller
 
     public function destroy(Development $development)
     {
+        // Hapus foto saat menghapus data
+        if ($development->photo) {
+            $oldPhoto = str_replace('/storage', 'public', $development->photo);
+            Storage::delete($oldPhoto);
+        }
+
         $development->delete();
 
         return redirect()
             ->route('admin.developments.index')
             ->with('success', 'Pembangunan berhasil dihapus');
     }
-} 
+}

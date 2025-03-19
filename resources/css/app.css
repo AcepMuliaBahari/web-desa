@@ -46,6 +46,25 @@
     }
 }
 
+/* Tambahkan di app.css */
+.main-content {
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar {
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 639px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar-open {
+        transform: translateX(0);
+    }
+}
+
 
 
 

@@ -33,6 +33,7 @@ use App\Http\Controllers\Admin\{
     FinanceController,
     VillageRegulationController,
     AdminStatisticsController,
+    LetterController,
     ArchiveController,
     SettingsController,
     VillageOfficialController as AdminVillageOfficialController,
@@ -170,9 +171,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('village-officials', \App\Http\Controllers\Admin\VillageOfficialController::class);
 });
 
-// Route untuk frontend (publik)
-Route::get('layanan-publik', [PublicServiceController::class, 'index'])->name('public-services.index');
-Route::get('layanan-publik/{id}', [PublicServiceController::class, 'show'])->name('public-services.show');
+
 
 // Public Routes untuk surat
 Route::middleware('auth')->group(function() {

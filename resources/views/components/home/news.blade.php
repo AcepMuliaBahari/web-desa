@@ -19,7 +19,7 @@
                     </div>
                     <a href="{{ route('news.index') }}" class="inline-flex items-center px-3 py-1.5 bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-all duration-200">
                         <span>Lihat Semua</span>
-                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i> 
                     </a>
                 </div>
             </div>

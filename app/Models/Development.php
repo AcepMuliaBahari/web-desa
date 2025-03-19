@@ -21,6 +21,7 @@ class Development extends Model
         'location',
         'pic_name',
         'pic_contact',
+        'photo',
     ];
 
     public static function getStatuses()
@@ -34,9 +35,19 @@ class Development extends Model
     }
 
     protected $casts = [
-        'start_date' => 'datetime',
-        'end_date' => 'datetime',
+        'start_date' => 'datetime',       // Sesuaikan dengan tipe date di migration
+        'end_date' => 'datetime',         // (bukan datetime)
         'budget' => 'decimal:2',
         'progress' => 'integer',
     ];
-} 
+
+    // Accessor untuk URL foto lengkap (jika diperlukan)
+    protected function photoUrl(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value, $attributes) => $attributes['photo'] 
+                ? asset($attributes['photo'])
+                : null,
+        );
+    }
+}

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Statistics\{
@@ -67,7 +67,7 @@ class AdminStatisticsController extends Controller
         if ($request->hasFile('dokumen')) {
             $path = $request->file('dokumen')->store('public/documents');
             $validated['dokumen_url'] = Storage::url($path);
-        }
+        } 
 
         $validated['tahun'] = date('Y');
 

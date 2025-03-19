@@ -9,11 +9,11 @@
             </svg>
          </button>
         <a href="/" class="flex ms-2 md:me-24">
-          <img src="{{ asset('images/logo-b.png') }}" class="h-8 sm:h-12 lg:h-16 w-auto me-3" alt="Logo" />
+          <img src="{{ asset('images/logo-b.png') }}" class="h-8 sm:h-11 lg:h-11 w-auto me-3" alt="Logo" />
 
           <div class="flex flex-col">
               <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">{{ config('app.name') }}</span>
-              <span class="text-sm text-gray-500 dark:text-gray-400">Kec. Nama Kecamatan, Kab. Nama Kabupaten</span>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Kec. Salem, Kab. Brebes</span>
           </div>
         </a>
       </div>

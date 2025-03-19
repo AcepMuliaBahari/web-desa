@@ -9,7 +9,7 @@
     </div>
 
     <form action="{{ isset($development) ? route('admin.developments.update', $development) : route('admin.developments.store') }}" 
-          method="POST">
+          method="POST" enctype="multipart/form-data">
         @csrf
         @if(isset($development))
             @method('PUT')
@@ -36,9 +36,17 @@
                 @enderror
             </div>
 
+            <div class="sm:col-span-2">
+                <label for="photo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Foto</label>
+                <input type="file" name="photo" id="photo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" {{ isset($development) ? '' : 'required' }}>
+                @error('photo')
+                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+
             <div>
                 <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal Mulai</label>
-                <input type="date" name="start_date" id="start_date" value="{{ old('start_date', isset($development) ? $development->start_date->format('Y-m-d') : '') }}"
+                <input type="date" name="start_date" id="start_date" value="{{ old('start_date', isset($development) ? $development->start_date->format('Y-m-d') : '') }}" required
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required>
                 @error('start_date')
@@ -48,7 +56,7 @@
 
             <div>
                 <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal Selesai</label>
-                <input type="date" name="end_date" id="end_date" value="{{ old('end_date', isset($development) ? $development->end_date->format('Y-m-d') : '') }}"
+                <input type="date" name="end_date" id="end_date" value="{{ old('end_date', isset($development) ? $development->end_date->format('Y-m-d') : '') }}" required
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required>
                 @error('end_date')
@@ -58,7 +66,7 @@
 
             <div>
                 <label for="budget" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Anggaran</label>
-                <input type="number" name="budget" id="budget" value="{{ old('budget', $development->budget ?? '') }}"
+                <input type="number" name="budget" id="budget" value="{{ old('budget', $development->budget ?? '') }}" required
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required>
                 @error('budget')
@@ -68,7 +76,7 @@
 
             <div>
                 <label for="progress" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Progress (%)</label>
-                <input type="number" name="progress" id="progress" min="0" max="100" value="{{ old('progress', $development->progress ?? 0) }}"
+                <input type="number" name="progress" id="progress" min="0" max="100" value="{{ old('progress', $development->progress ?? 0) }}" required
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required>
                 @error('progress')
@@ -78,7 +86,7 @@
 
             <div>
                 <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                <select name="status" id="status" 
+                <select name="status" id="status" required
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required>
                     @foreach($statuses as $status)
@@ -94,7 +102,7 @@
 
             <div>
                 <label for="location" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lokasi</label>
-                <input type="text" name="location" id="location" value="{{ old('location', $development->location ?? '') }}"
+                <input type="text" name="location" id="location" value="{{ old('location', $development->location ?? '') }}" required
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required>
                 @error('location')
@@ -104,7 +112,7 @@
 
             <div>
                 <label for="pic_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama PIC</label>
-                <input type="text" name="pic_name" id="pic_name" value="{{ old('pic_name', $development->pic_name ?? '') }}"
+                <input type="text" name="pic_name" id="pic_name" value="{{ old('pic_name', $development->pic_name ?? '') }}" required
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required>
                 @error('pic_name')
@@ -114,7 +122,7 @@
 
             <div>
                 <label for="pic_contact" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kontak PIC</label>
-                <input type="text" name="pic_contact" id="pic_contact" value="{{ old('pic_contact', $development->pic_contact ?? '') }}"
+                <input type="text" name="pic_contact" id="pic_contact" value="{{ old('pic_contact', $development->pic_contact ?? '') }}" required
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required>
                 @error('pic_contact')
@@ -135,4 +143,4 @@
         </div>
     </form>
 </div>
-@endsection 
+@endsection

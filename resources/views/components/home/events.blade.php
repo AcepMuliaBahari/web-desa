@@ -2,11 +2,11 @@
 <div class="w-full md:w-1/2">
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transition-all duration-300 hover:shadow-2xl">
         <div class="flex items-center justify-between mb-8">
-            <h2 class="text-2xl font-bold text-gray-800 dark:text-white animate-fade-right">
-                <i class="fas fa-calendar-alt mr-2 text-blue-600 dark:text-blue-400"></i>
-                Agenda Kegiatan
-            </h2>
-            <a href="{{ route('events.index') }}" class="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium transition-colors duration-200">
+                <h2 class="text-2xl font-bold text-gray-800 dark:text-white animate-fade-right flex items-center">
+                    <i class="fas fa-newspaper text-blue-600 dark:text-blue-400 mr-3 text-3xl"></i>
+                    <span class="border-b-2 border-blue-600 dark:border-blue-400 pb-1">Kegiatan Mendatang</span>
+                </h2>
+            <a href="{{ route('events.index') }}" class="inline-flex items-center px-3 py-1.5 bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-all duration-200">
                 Lihat Semua
             </a>
         </div>

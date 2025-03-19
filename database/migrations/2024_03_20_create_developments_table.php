@@ -14,7 +14,7 @@ return new class extends Migration
             $table->text('description');
             $table->date('start_date');
             $table->date('end_date');
-          
+            $table->string('photo')->nullable();
             $table->decimal('budget', 15, 2);
             $table->integer('progress')->default(0);
             $table->enum('status', ['Belum Dimulai', 'Proses', 'Selesai', 'Tertunda'])->default('Belum Dimulai');

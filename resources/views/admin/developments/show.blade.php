@@ -18,6 +18,12 @@
             <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Deskripsi</p>
             <p class="text-sm text-gray-900 dark:text-white">{{ $development->description }}</p>
         </div>
+
+        <div>
+            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Foto</p>
+            <img src="{{ $development->photo_url }}" alt="Foto Development" class="w-24 h-24 object-cover rounded-lg">
+        </div>
+
         <div>
             <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Lokasi</p>
             <p class="text-sm text-gray-900 dark:text-white">{{ $development->location }}</p>
