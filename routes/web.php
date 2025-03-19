@@ -209,54 +209,54 @@ Route::prefix('admin/statistics')->name('admin.statistics.')->middleware(['auth'
 // Route untuk halaman statistik
 Route::get('/statistics', [StatisticsController::class, 'index'])->name('statistics.index');
 
-// User Routes
-Route::middleware('user')->prefix('user')->name('user.')->group(function () {
-    Route::get('/dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
+// // User Routes
+// Route::middleware('user')->prefix('user')->name('user.')->group(function () {
+//     Route::get('/dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
     
-    // Profile routes
-    Route::get('/profile', function() {
-        return view('user.profile');
-    })->name('profile');
+//     // Profile routes
+//     Route::get('/profile', function() {
+//         return view('user.profile');
+//     })->name('profile');
     
-    Route::get('/profile/edit', function() {
-        return view('user.profile.edit');
-    })->name('profile.edit');
+//     Route::get('/profile/edit', function() {
+//         return view('user.profile.edit');
+//     })->name('profile.edit');
     
-    // Letters routes
-    Route::get('/letters', function() {
-        return view('user.letters.index');
-    })->name('letters.index');
+//     // Letters routes
+//     Route::get('/letters', function() {
+//         return view('user.letters.index');
+//     })->name('letters.index');
     
-    Route::get('/letters/create', function() {
-        return view('user.letters.create');
-    })->name('letters.create');
+//     Route::get('/letters/create', function() {
+//         return view('user.letters.create');
+//     })->name('letters.create');
     
-    Route::get('/letters/{id}', function($id) {
-        return view('user.letters.show', ['id' => $id]);
-    })->name('letters.show');
+//     Route::get('/letters/{id}', function($id) {
+//         return view('user.letters.show', ['id' => $id]);
+//     })->name('letters.show');
     
-    // Complaints routes
-    Route::get('/complaints', function() {
-        return view('user.complaints.index');
-    })->name('complaints.index');
+//     // Complaints routes
+//     Route::get('/complaints', function() {
+//         return view('user.complaints.index');
+//     })->name('complaints.index');
     
-    Route::get('/complaints/create', function() {
-        return view('user.complaints.create');
-    })->name('complaints.create');
+//     Route::get('/complaints/create', function() {
+//         return view('user.complaints.create');
+//     })->name('complaints.create');
     
-    // Village information routes
-    Route::get('/village/news', function() {
-        return view('user.village.news');
-    })->name('village.news');
+//     // Village information routes
+//     Route::get('/village/news', function() {
+//         return view('user.village.news');
+//     })->name('village.news');
     
-    Route::get('/village/events', function() {
-        return view('user.village.events');
-    })->name('village.events');
+//     Route::get('/village/events', function() {
+//         return view('user.village.events');
+//     })->name('village.events');
     
-    Route::get('/village/statistics', function() {
-        return view('user.village.statistics');
-    })->name('village.statistics');
-});
+//     Route::get('/village/statistics', function() {
+//         return view('user.village.statistics');
+//     })->name('village.statistics');
+// });
 
 
 
