@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - {{ config('app.name') }}</title>
-    @vite(['resources/css/app.css','resources/js/app.js'])
-</head>
-<body class="bg-gray-50 dark:bg-gray-900">
-    <div class="flex flex-col items-center justify-center px-6 pt-8 mx-auto md:h-screen pt:mt-0 dark:bg-gray-900">
-        <a href="/" class="flex items-center justify-center mb-8 text-2xl font-semibold lg:mb-10 dark:text-white">
+@extends('components.layout')
+
+@section('content')
+        <div class="flex flex-col items-center justify-center px-6 pt-8 mx-auto md:h-screen pt:mt-0 dark:bg-gray-900">
+@include('components.alert')
+        <!-- <a href="/" class="flex items-center justify-center mb-8 text-2xl font-semibold lg:mb-10 dark:text-white">
             <img src="{{ asset('images/logo-b.png') }}" class="mr-4 h-11" alt="Logo">
             <span>{{ config('app.name') }}</span>
-        </a>
+        </a> -->
         <!-- Card -->
-        <div class="w-full max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow dark:bg-gray-800">
+        <div class="w-full max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow dark:bg-gray-800 dark:border-gray-600">
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
                 Login ke Dashboard
             </h2>
@@ -45,14 +40,14 @@
                         <a href="{{ route('password.request') }}" class="ml-auto text-sm text-primary-700 hover:underline dark:text-primary-500">Lupa Password?</a>
                     @endif
                 </div>
-                <button type="submit" class="w-full text-centertext-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Login</button>
-                @if (Route::has('register'))
-                    {{-- <div class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                        Belum punya akun? <a href="{{ route('register') }}" class="text-primary-700 hover:underline dark:text-primary-500">Daftar</a>
-                    </div> --}}
-                @endif
+                <button type="submit" class="w-full text-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Login</button>
+                <!-- @if (Route::has('register'))
+                     <div class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                        Belum punya akun? <a href="{{ route('register') }}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Daftar</a>
+                    </div> 
+                @endif -->
             </form>
         </div>
     </div>
-</body>
-</html> 
+  
+@endsection

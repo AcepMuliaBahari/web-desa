@@ -92,11 +92,11 @@
                         <i class="fas fa-building w-5 mr-3 text-primary-500"></i>
                         <span>Pembangunan</span>
                     </a>
-                    <a href="{{ route('potentials.index') }}#pengaduan" 
+                    <!-- <a href="{{ route('potentials.index') }}#pengaduan" 
                        class="flex items-center px-4 py-2.5 hover:bg-gray-50 dark:hover:bg-gray-700">
                         <i class="fas fa-comment-alt w-5 mr-3 text-primary-500"></i>
                         <span>Pengaduan</span>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </li>
@@ -216,36 +216,7 @@
         </div>
     </div>
 </li>
-        <!-- status
-        <li class="relative group">
-                    <a href="{{ route('statistics.index') }}" 
-                    class="flex items-center px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200
-                            {{ request()->routeIs('statistics.index') ? 'text-primary-600 dark:text-primary-400 font-medium' : '' }}">
-                        <i class="fas fa-signal mr-2"></i>
-                        Status
-                        <svg class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" 
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </a>
-                    <div class="absolute left-0 mt-1 hidden group-hover:block bg-white dark:bg-gray-800 rounded-xl shadow-lg w-56 
-                                border border-gray-100 dark:border-gray-700 transform opacity-0 scale-95 group-hover:opacity-100 
-                                group-hover:scale-100 transition-all duration-200">
-                        <div class="py-2">
 
-                            <a href="{{ route('statistics.index') }}#status-idm" 
-                            class="flex items-center px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200">
-                            <i class="fas fa-chart-pie mr-2"></i>
-                            Status IDM
-                        </a>
-                        <a href="{{ route('statistics.index') }}#status-sdgm" 
-                        class="flex items-center px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200">
-                        <i class="fas fa-globe mr-2"></i>
-                        Status SDGs
-                    </a>
-                        </div>
-                    </div>
-                </li> -->
 <!-- PPID -->
 <li class="relative group" x-data="{ open: false }" @mouseover="open = true" @mouseleave="setTimeout(() => open = false, 3000)">
     <a href="{{ route('ppid.index') }}" 

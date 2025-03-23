@@ -1,8 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+<x-alert />
 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-    <x-alert />
+
     
     <x-admin.section-header 
         title="Daftar Surat" 

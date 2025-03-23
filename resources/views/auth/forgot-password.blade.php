@@ -38,5 +38,6 @@
             </form>
         </div>
     </div>
+    @include('components.scripts.dark-mode')
 </body>
 </html> 

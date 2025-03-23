@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+<x-alert />
 <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border-l-4 border-blue-500">
 
 <div class="overflow-x-auto">

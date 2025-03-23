@@ -20,10 +20,10 @@
     </script>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900">
+  <x-alert />
     @include('layouts.admin.partials.navbar')
     @include('layouts.admin.partials.sidebar')
-           <!-- Alert Messages -->
-    @include('components.alert')
+           
     <div class="p-4 sm:ml-64 transition-all duration-300">
 
         <div class="p-4 mt-14">
@@ -40,4 +40,4 @@
     @stack('scripts')
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 </body>
-</html> 
+</html>

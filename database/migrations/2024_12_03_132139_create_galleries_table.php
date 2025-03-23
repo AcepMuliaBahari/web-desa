@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->string('type'); // image atau video
+            $table->string('type');
             $table->string('file_path');
             $table->boolean('is_active')->default(true);
             $table->timestamps();

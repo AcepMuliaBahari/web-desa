@@ -53,6 +53,6 @@ class EventController extends Controller
     {
         $event->delete();
         return redirect()->route('admin.events.index')
-            ->with('success', 'Acara berhasil dihapus');
+            ->with('toast',"sucess", 'Acara berhasil dihapus');
     }
-} 
+}

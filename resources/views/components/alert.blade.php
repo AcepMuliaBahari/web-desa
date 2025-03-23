@@ -66,7 +66,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const alerts = document.querySelectorAll('[role="alert"]');
     alerts.forEach(alert => {
         console.log("Found alert:", alert); // Debug apakah elemen ditemukan.
+    alert.style.opacity = '1'; // Ensure alert is visible
 
+        alert.style.opacity = '1'; // Ensure alert is visible
         setTimeout(() => {
             alert.style.transition = 'opacity 0.5s ease-out';
             alert.style.opacity = '0';
@@ -90,4 +92,4 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-</script> 
+</script>
