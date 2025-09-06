@@ -38,7 +38,7 @@
             <div class="animate-fade-left">
                 <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Alamat Kantor Desa</h3>
                 <p class="text-gray-600 dark:text-gray-300 mb-4">
-                    {{ $profile->address ?? 'VQ4X+XJH, Ci Panyuruan, Pasir Panjang, Kec. Salem, Kabupaten Brebes, Jawa Tengah 52275' }}
+                    {{ $profile->address ?? 'Jl. Situ No. 1 Desa Pasirpanjang Kecamatan Salem. Pos 52275' }}
                 </p>
                 <div class="flex gap-4">
                     <a href="https://maps.google.com/?q={{ urlencode($profile->address ?? 'Desa Pasirpanjang, Salem, Brebes') }}" 

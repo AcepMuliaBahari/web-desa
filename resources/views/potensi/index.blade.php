@@ -3,7 +3,7 @@
 @section('content')
     <div class="bg-gray-50 dark:bg-gray-900">
         <!-- Hero Section dengan Pattern Background -->
-        <div class="relative bg-gradient-to-r from-green-500 to-green-700 dark:from-green-600 dark:to-green-800">
+        <div class="relative bg-gradient-to-br from-green-500 to-teal-600 dark:from-green-700 dark:to-teal-800 shadow-xl overflow-hidden0">
             <div class="absolute inset-0 opacity-10">
                 <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <pattern id="hero-pattern" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -13,15 +13,15 @@
                 </svg>
             </div>
             
-            <div class="container mx-auto px-4 py-32 relative">
+            <div class="container mx-auto px-4 py-10 relative">
                 <div class="max-w-3xl animate-fade-up">
-                    <h1 class="text-5xl font-bold text-white mb-6">Potensi Desa Pasirpanjang</h1>
-                    <p class="text-xl text-green-100 leading-relaxed">
+                    <h2 class="text-5lg font-bold text-white mb-6">Potensi Desa Pasirpanjang</h2>
+                    <p class="text-lg text-green-100 leading-relaxed">
                         Jelajahi berbagai potensi dan keunggulan yang dimiliki Desa Pasirpanjang dalam pengembangan ekonomi, pariwisata, dan pembangunan berkelanjutan.
                     </p>
                 </div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-50 dark:from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-gray-50 dark:from-gray-900 to-transparent"></div>
         </div>
 
         <!-- Navigation Tabs dengan Icon -->

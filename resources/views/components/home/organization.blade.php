@@ -5,15 +5,15 @@
         <!-- SOTK Chart -->
         <div class="max-w-5xl mx-auto mb-12 animate-fade bg-white dark:bg-gray-700 rounded-2xl shadow-2xl p-8 border border-gray-100 dark:border-gray-600">
             <div class="relative group cursor-pointer">
-                <img id="orgChart" src="{{ asset('images/organisasi/0.png') }}" alt="Struktur Organisasi" class="w-full h-auto rounded-xl" onclick="openFullscreen(this.src)">
+                <img id="orgChart" src="{{ asset('images/organisasi/1.png') }}" alt="Struktur Organisasi" class="w-full h-auto rounded-xl" onclick="openFullscreen(this.src)">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center rounded-xl">
                     <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex gap-2">
-                        <button onclick="openFullscreen('{{ asset('images/organisasi/0.png') }}')" class="bg-white/90 hover:bg-white p-2 rounded-full">
+                        <button onclick="openFullscreen('{{ asset('images/organisasi/1.png') }}')" class="bg-white/90 hover:bg-white p-2 rounded-full">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:stroke-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </button>
-                        <a href="{{ asset('images/organisasi/0.png') }}" download class="bg-white/90 hover:bg-white p-2 rounded-full">
+                        <a href="{{ asset('images/organisasi/1.png') }}" download class="bg-white/90 hover:bg-white p-2 rounded-full">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:stroke-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                             </svg>

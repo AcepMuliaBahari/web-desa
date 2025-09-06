@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\{
-    News, Complaint, Letter, Citizen, VillageOfficial, 
+    News, Complaint, Letter, Citizen, VillageOfficial,
     VillageProfile, PublicService, Umkm, Finance, Event,Gallery,
 };
 use App\Models\Statistics\{
@@ -40,21 +40,21 @@ class DashboardController extends Controller
             ->get();
 
         // Data Galeri
-        $gallery = VillageProfile::latest()
+        $gallery = Gallery::latest()
             ->take(6)
             ->get();
 
+        // Data Pengaduan Terbaru
+        $latestComplaints = Complaint::with('citizen')
+            ->latest()
+            ->take(5)
+            ->get();
 
         $totalPenduduk = Population::sum('laki_laki') + Population::sum('perempuan');
-        $totalApbdes = Apbdes::where('tahun', date('Y'))->sum('pendapatan');
-        $statusIdm = Idm::where('tahun', date('Y'))->first()->status ?? 'Belum ada data';
-        $totalGoalsTercapai = Sdgs::where('tahun', date('Y'))->first()->summary['tercapai'] ?? 0;
 
         return view('admin.dashboard', compact(
-            'latestNews', 'officials', 'umkm', 'gallery',
-      
-
-            'totalPenduduk', 'totalApbdes', 'statusIdm', 'totalGoalsTercapai'
+            'latestNews', 'officials', 'umkm', 'gallery', 'latestComplaints',
+            'totalPenduduk'
         ));
     }
-} 
+}

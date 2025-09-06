@@ -52,21 +52,22 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                        Belanja Pembangunan
+                        Bidang Penyelenggaraan Pemerintah Desa
                     </label>
                     <input type="number" name="belanja_pembangunan" value="{{ old('belanja_pembangunan', $data->belanja_pembangunan ?? 0) }}"
                         class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                        Belanja Operasional
+                        Bidang Pelaksanaan Pembangunan Desa 
                     </label>
                     <input type="number" name="belanja_operasional" value="{{ old('belanja_operasional', $data->belanja_operasional ?? 0) }}"
                         class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                        Belanja Tak Terduga
+                        Bidang Pemberdayaan Masyarakat 
+
                     </label>
                     <input type="number" name="belanja_takterduga" value="{{ old('belanja_takterduga', $data->belanja_takterduga ?? 0) }}"
                         class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input">

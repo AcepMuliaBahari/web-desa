@@ -9,21 +9,20 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
             @forelse($galleries ?? [] as $gallery)
                 <a href="{{ route('potentials.gallery.show', $gallery) }}" 
-                   class="group bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 animate-fade-up">
-                    <div class="relative aspect-[4/3] overflow-hidden">
+                   class="group block bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="relative aspect-square overflow-hidden">
                         @if($gallery->type === 'video')
-                            <video class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            <video class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300 ease-out"
                                    poster="{{ Storage::url($gallery->file_path) }}"
                                    muted>
                                 <source src="{{ Storage::url($gallery->file_path) }}" type="video/mp4">
                             </video>
-                            <!-- Ikon Play untuk Video -->
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="w-16 h-16 flex items-center justify-center rounded-full bg-black bg-opacity-50 text-white group-hover:bg-opacity-75 transition-all duration-300">
-                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                            <div class="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/30">
+                                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-white/90 text-blue-600 group-hover:scale-110 transition-transform">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
                                     </svg>
                                 </div>
@@ -31,11 +30,10 @@
                         @else
                             <img src="{{ Storage::url($gallery->file_path) }}" 
                                  alt="{{ $gallery->title }}" 
-                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300 ease-out">
                         @endif
                         
-                        <!-- Badge untuk tipe konten -->
-                        <div class="absolute top-3 left-3">
+                        <div class="absolute top-2 left-2">
                             <span class="px-2 py-1 text-xs font-medium rounded-full 
                                 {{ $gallery->type === 'video' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300' : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' }}">
                                 {{ $gallery->type === 'video' ? 'Video' : 'Foto' }}
@@ -43,22 +41,21 @@
                         </div>
                     </div>
 
-                        <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                            <h3 class="text-xl font-bold mb-2 line-clamp-1">
-                                {{ $gallery->title }}
-                            </h3>
-                            <p class="text-sm text-gray-200 line-clamp-2 mb-3">
-                                {{ $gallery->description }}
-                            </p>
-                            <div class="flex items-center text-sm text-gray-300">
-                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                                {{ $gallery->created_at->locale('id')->diffForHumans() }}
-                            </div>
+                    <div class="p-4 bg-white dark:bg-gray-800 transition-colors">
+                        <h3 class="font-semibold line-clamp-1 text-gray-800 dark:text-gray-200 mb-1">
+                            {{ $gallery->title }}
+                        </h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-2">
+                            {{ $gallery->description }}
+                        </p>
+                        <div class="flex items-center text-xs text-gray-500 dark:text-gray-400">
+                            <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>{{ $gallery->created_at->locale('id')->diffForHumans() }}</span>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
             @empty
                 <div class="col-span-full min-h-[400px] flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
                     <div class="w-24 h-24 mb-6 text-gray-300 dark:text-gray-600">
@@ -74,4 +71,4 @@
             @endforelse
         </div>
     </div>
-</section> 
+</section>

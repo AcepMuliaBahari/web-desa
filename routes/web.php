@@ -1,45 +1,39 @@
 <?php
 
-use App\Http\Controllers\{
-    HomeController,
-    ProfileController,
-    LandingPageController,
-    NewsController,
-    PublicServiceController,
-    OrganizationController,
-    EventController,
-    DocumentController,
-    ComplaintController,
-    ResourceController,
-    PotentialController,
-    PotensiController,
-    VillageOfficialController,
-    // LetterController,
-    // ArchiveController,
-    FinanceReportController,
-    UmkmController,
-    GalleryController,
-    PPIDController,
-};
+use App\Http\Controllers\HomeController as BaseHomeController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PublicServiceController;
+use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\PotentialController;
+use App\Http\Controllers\PotensiController;
+use App\Http\Controllers\VillageOfficialController;
+// use App\Http\Controllers\LetterController;
+// use App\Http\Controllers\ArchiveController;
+use App\Http\Controllers\FinanceReportController;
+use App\Http\Controllers\UmkmController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\PPIDController;
+use App\Http\Controllers\PengaduanController;
 
-use App\Http\Controllers\Admin\{
-    DashboardController,
-    CitizenController,
-    ComplaintController as AdminComplaintController,
-    PublicServiceController as AdminPublicServiceController,
-    EventController as AdminEventController,
-    NewsController as AdminNewsController, 
-    VillageProfileController,
-    FinanceController,
-    VillageRegulationController,
-    AdminStatisticsController,
-    LetterController,
-    ArchiveController,
-    SettingsController,
-    VillageOfficialController as AdminVillageOfficialController,
-
-};
-
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CitizenController;
+use App\Http\Controllers\Admin\ComplaintController as AdminComplaintController;
+use App\Http\Controllers\Admin\PublicServiceController as AdminPublicServiceController;
+use App\Http\Controllers\Admin\EventController as AdminEventController;
+use App\Http\Controllers\Admin\NewsController as AdminNewsController;
+use App\Http\Controllers\Admin\VillageProfileController;
+use App\Http\Controllers\Admin\FinanceController;
+use App\Http\Controllers\Admin\VillageRegulationController;
+use App\Http\Controllers\Admin\AdminStatisticsController;
+use App\Http\Controllers\Admin\LetterController;
+use App\Http\Controllers\Admin\ArchiveController;
+use App\Http\Controllers\Admin\SettingsController;
 
 use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\RegulationController;
@@ -56,9 +50,12 @@ Route::get('/profil', function () {
 // PPID Routes
 Route::get('/ppid', [PPIDController::class, 'index'])->name('ppid.index');
 
+// Pengaduan
+
+Route::get('/pengaduan', [PengaduanController::class, 'index'])->name('pengaduan.index');
+
 // Organization Routes
 Route::get('/organisasi', [VillageOfficialController::class, 'organization'])->name('organization.index');
-
 
 Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm.index');
 Route::get('/umkm/{umkm}', [UmkmController::class, 'show'])->name('umkm.show');
@@ -99,10 +96,29 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// User Dashboard Route
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [\App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
+    Route::get('/complaints', [\App\Http\Controllers\ComplaintController::class, 'index'])->name('complaints.index');
+    Route::get('/complaints/create', [\App\Http\Controllers\ComplaintController::class, 'create'])->name('complaints.create');
+    Route::post('/complaints', [\App\Http\Controllers\ComplaintController::class, 'store'])->name('complaints.store');
+    Route::get('/complaints/{complaint}/edit', [\App\Http\Controllers\ComplaintController::class, 'edit'])->name('complaints.edit');
+    Route::get('/complaints/{complaint}', [\App\Http\Controllers\ComplaintController::class, 'show'])->name('complaints.show');
+        Route::put('/complaints/{complaint}', [\App\Http\Controllers\ComplaintController::class, 'updateUser'])->name('complaints.update');
+
+    // Untuk user
+    Route::delete('/complaints/{complaint}', [ComplaintController::class, 'destroy'])
+        ->name('complaints.destroy')
+        ->middleware('auth');
+
+    // Route::get('/pengaduan', function () {
+    //     return view('pengaduan');
+    // })->name('pengaduan.index');
+});
+
 require __DIR__.'/auth.php';
 
 // Home route untuk user biasa
-
 
 // Admin Routes
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
@@ -112,24 +128,19 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('citizens/import', [CitizenController::class, 'import'])->name('citizens.import');
         Route::get('citizens/print', [CitizenController::class, 'print'])->name('citizens.print');
         Route::resource('citizens', CitizenController::class);
-        
-        // Hapus route yang redundant
-        Route::get('/citizens/{citizen}', [CitizenController::class, 'show'])->name('admin.citizens.show'); 
 
+        // Hapus route yang redundant
+        Route::get('/citizens/{citizen}', [CitizenController::class, 'show'])->name('admin.citizens.show');
 
 });
 
-
-
 // Grup route untuk admin
-Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
 
-    
-    // Route untuk pengaduan
-    Route::resource('complaints', ComplaintController::class);
-    Route::post('complaints/{complaint}/respond', [ComplaintController::class, 'respond'])
+    Route::resource('complaints', AdminComplaintController::class);
+    Route::post('complaints/{complaint}/respond', [AdminComplaintController::class, 'respond'])
         ->name('complaints.respond');
-   
+
 });
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -151,7 +162,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('finances/{finance}/download', [FinanceController::class, 'download'])
         ->name('finances.download');
     Route::resource('news', AdminNewsController::class);
-    
+
     Route::get('village-profile', [VillageProfileController::class, 'index'])->name('village-profile.index');
     Route::get('village-profile/edit', [VillageProfileController::class, 'edit'])->name('village-profile.edit');
     Route::put('village-profile', [VillageProfileController::class, 'update'])->name('village-profile.update');
@@ -163,13 +174,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('galleries', \App\Http\Controllers\Admin\GalleryController::class);
     // UMKM Routes
     Route::resource('umkm', \App\Http\Controllers\Admin\UmkmController::class);
-    
+
     // Development Routes
     Route::resource('developments', \App\Http\Controllers\Admin\DevelopmentController::class);
     Route::resource('village-officials', \App\Http\Controllers\Admin\VillageOfficialController::class);
 });
-
-
 
 // Public Routes untuk surat
 Route::middleware('auth')->group(function() {
@@ -209,63 +218,4 @@ Route::prefix('admin/statistics')->name('admin.statistics.')->middleware(['auth'
 // Route untuk halaman statistik
 Route::get('/statistics', [StatisticsController::class, 'index'])->name('statistics.index');
 
-// // User Routes
-// Route::middleware('user')->prefix('user')->name('user.')->group(function () {
-//     Route::get('/dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
-    
-//     // Profile routes
-//     Route::get('/profile', function() {
-//         return view('user.profile');
-//     })->name('profile');
-    
-//     Route::get('/profile/edit', function() {
-//         return view('user.profile.edit');
-//     })->name('profile.edit');
-    
-//     // Letters routes
-//     Route::get('/letters', function() {
-//         return view('user.letters.index');
-//     })->name('letters.index');
-    
-//     Route::get('/letters/create', function() {
-//         return view('user.letters.create');
-//     })->name('letters.create');
-    
-//     Route::get('/letters/{id}', function($id) {
-//         return view('user.letters.show', ['id' => $id]);
-//     })->name('letters.show');
-    
-//     // Complaints routes
-//     Route::get('/complaints', function() {
-//         return view('user.complaints.index');
-//     })->name('complaints.index');
-    
-//     Route::get('/complaints/create', function() {
-//         return view('user.complaints.create');
-//     })->name('complaints.create');
-    
-//     // Village information routes
-//     Route::get('/village/news', function() {
-//         return view('user.village.news');
-//     })->name('village.news');
-    
-//     Route::get('/village/events', function() {
-//         return view('user.village.events');
-//     })->name('village.events');
-    
-//     Route::get('/village/statistics', function() {
-//         return view('user.village.statistics');
-//     })->name('village.statistics');
-// });
-
-
-
-
-
-
-
-
-
-
-
-
+// User Routes

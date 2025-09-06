@@ -62,7 +62,7 @@ class AdminStatisticsController extends Controller
             'dana_desa' => 'required|numeric',
             'pad' => 'required|numeric',
             'bantuan' => 'required|numeric',
-            'belanja' => 'required|numeric',
+            'belanja' => 'required|numeric', 
             'belanja_pembangunan' => 'required|numeric',
             'belanja_operasional' => 'required|numeric',
             'belanja_takterduga' => 'required|numeric',

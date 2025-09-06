@@ -14,15 +14,15 @@
                 </svg>
             </div>
             
-            <div class="container mx-auto px-4 py-32 relative">
+            <div class="container mx-auto px-4 py-10 relative">
                 <div class="max-w-3xl animate-fade-up">
-                    <h1 class="text-5xl font-bold text-white mb-6">Profil Desa Pasirpanjang</h1>
-                    <p class="text-xl text-blue-100 leading-relaxed">
-                        Mengenal lebih dekat sejarah, visi, misi, dan perkembangan Desa Pasirpanjang dalam membangun masyarakat yang sejahtera dan berkelanjutan.
+                    <h2 class="text-5lg font-bold text-white mb-6">Profil Desa </h2>
+                    <p class="text-lg text-blue-100 leading-relaxed">
+                        Mengenal lebih dekat sejarah, visi, misi, dan perkembangan Desa dalam membangun masyarakat yang sejahtera dan berkelanjutan.
                     </p>
                 </div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-50 dark:from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-50 dark:from-gray-900 to-transparent"></div>
         </div>
 
         <!-- Navigation Tabs dengan Icon -->

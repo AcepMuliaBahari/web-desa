@@ -13,15 +13,15 @@
                 </svg>
             </div>
             
-            <div class="container mx-auto px-4 py-32 relative">
+            <div class="container mx-auto px-4 py-10 relative">
                 <div class="max-w-3xl animate-fade-up">
-                    <h1 class="text-5xl font-bold text-white mb-6">Data Statistik Desa Pasirpanjang</h1>
+                    <h2 class="text-5lg font-bold text-white mb-6">Data Statistik Desa </h2>
                     <p class="text-xl text-blue-100 leading-relaxed">
                         Informasi terkini mengenai data penduduk, APBDes, Status IDM, dan Status SDGs untuk transparansi dan akuntabilitas desa.
                     </p>
                 </div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-50 dark:from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-gray-50 dark:from-gray-900 to-transparent"></div>
         </div>
 
         <!-- Navigation Tabs dengan Animasi -->

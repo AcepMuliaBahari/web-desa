@@ -20,6 +20,30 @@
                     </a>
                 </li>
 
+                {{-- Pengaduan --}}
+                <li>
+                    <button type="button" 
+                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('admin.complaints.*') ? 'bg-blue-100 dark:bg-blue-900 border-l-4 border-blue-600' : '' }}" 
+                        aria-controls="dropdown-pengaduan" 
+                        data-collapse-toggle="dropdown-pengaduan">
+                        <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white {{ request()->routeIs('admin.complaints.*') ? 'text-blue-600 dark:text-blue-400' : '' }}" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Pengaduan</span>
+                        <svg class="w-3 h-3 {{ request()->routeIs('admin.complaints.*') ? 'rotate-180' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <ul id="dropdown-pengaduan" class="{{ request()->routeIs('admin.complaints.*') ? '' : 'hidden' }} py-2 space-y-2">
+                        <li>
+                            <a href="{{ route('admin.complaints.index') }}" 
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('admin.complaints.index') ? 'bg-blue-50 dark:bg-blue-800' : '' }}">
+                                Daftar Pengaduan
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 {{-- Data Penduduk --}}
                 <li>
                     <button type="button" 

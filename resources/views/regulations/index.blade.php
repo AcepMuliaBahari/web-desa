@@ -13,17 +13,17 @@
                 </svg>
             </div>
 
-            <div class="container mx-auto px-6 py-32 relative">
+            <div class="container mx-auto px-6 py-10 relative">
                 <div class="max-w-3xl text-center animate-fade-up">
-                    <h1 class="text-5xl font-bold text-white mb-6 leading-tight">
+                    <h2 class="text-5lg font-bold text-white mb-6 leading-tight">
                         Informasi Regulasi Desa
-                    </h1>
-                    <p class="text-xl text-green-100 leading-relaxed">
+                    </h2>
+                    <p class="text-lg text-green-100 leading-relaxed">
                         Temukan peraturan desa, dokumen hukum, dan regulasi resmi yang mendukung kemajuan Desa Pasirpanjang.
                     </p>
                 </div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-50 dark:from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-50 dark:from-gray-900 to-transparent"></div>
         </div>
 
         <!-- Navigation Tabs -->

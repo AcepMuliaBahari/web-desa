@@ -8,9 +8,16 @@ use Illuminate\Http\Request;
 
 class ComplaintController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $complaints = Complaint::with('citizen')->latest()->paginate(10);
+        $query = Complaint::with('citizen')->latest();
+
+        // Filter by status if provided
+        if ($request->has('status') && $request->status) {
+            $query->where('status', $request->status);
+        }
+
+        $complaints = $query->paginate(10);
         return view('admin.complaints.index', compact('complaints'));
     }
 
@@ -39,4 +46,4 @@ class ComplaintController extends Controller
         return redirect()->route('admin.complaints.index')
             ->with('success', 'Pengaduan berhasil dihapus');
     }
-} 
+}

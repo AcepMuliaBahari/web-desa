@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}"> 
-    <title>{{ isset($title) ? $title . ' -' : '' }} Admin Dashboard - {{ config('app.name') }}</title>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />   
+     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <title>{{ isset($title) ? $title . ' -' : '' }} User Dashboard - {{ config('app.name') }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
     @vite(['resources/css/app.css','resources/js/app.js'])
-    
+
     <!-- Dark mode script -->
     <script>
 
@@ -24,17 +24,14 @@
   <x-alert />
    <x-toast/>
 
-    @include('layouts.admin.partials.navbar')
-    @include('layouts.admin.partials.sidebar')
-           
+    @include('layouts.user.partials.navbar')
+    @include('layouts.user.partials.sidebar')
+
     <div class="p-4 sm:ml-64 transition-all duration-300">
 
         <div class="p-4 mt-14">
-            @include('layouts.admin.partials.header')
-            
-         
+            @include('layouts.user.partials.header')
 
-            
             <!-- Main Content -->
             @yield('content')
         </div>

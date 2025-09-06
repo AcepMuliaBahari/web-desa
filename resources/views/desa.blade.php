@@ -13,7 +13,7 @@
     @include('components.home.hero')
     @include('components.home.welcome')
     @include('components.home.organization')
-    @include('components.home.population')
+    
     @include('components.home.explore')
     
     @include('components.scripts.animation')

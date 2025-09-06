@@ -90,6 +90,9 @@
                             @case('admin.galleries.index')
                                 Kelola galeri foto dan video desa
                                 @break
+                            @case('admin.complaints.index')
+                                Kelola pengaduan
+                                @break
                             @default
                                 Desa Pasirpanjang
                         @endswitch

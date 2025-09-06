@@ -8,9 +8,6 @@
         <!-- Card Komponen -->
         @foreach ([
             ['route' => 'admin.statistics.penduduk', 'title' => 'Data Penduduk', 'value' => number_format($totalPenduduk ?? 0, 0, ',', '.'), 'unit' => 'Jiwa', 'icon' => 'users', 'color' => 'blue'],
-            ['route' => 'admin.statistics.apbdes', 'title' => 'APBDes', 'value' => 'Rp ' . number_format($totalApbdes ?? 0, 0, ',', '.'), 'icon' => 'money', 'color' => 'green'],
-            ['route' => 'admin.statistics.idm', 'title' => 'Status IDM', 'value' => $statusIdm ?? 'Belum ada data', 'icon' => 'chart', 'color' => 'yellow'],
-            ['route' => 'admin.statistics.sdgs', 'title' => 'Status SDGs', 'value' => ($totalGoalsTercapai ?? 0) . ' / 17 Goals', 'icon' => 'target', 'color' => 'teal'],
         ] as $item)
         <a href="{{ route($item['route']) }}"
            class="flex items-center p-4 bg-white rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700">
@@ -24,14 +21,15 @@
         </a>
         @endforeach
     </div>
-    
+
     <!-- Grid untuk konten tambahan -->
     <div class="grid w-full grid-cols-1 gap-4 mt-6 xl:grid-cols-2 2xl:grid-cols-3">
         @foreach ([
+            ['title' => 'Pengaduan Terbaru', 'route' => 'admin.complaints.index', 'data' => $latestComplaints, 'type' => 'complaints'],
             ['title' => 'Berita Terbaru', 'route' => 'admin.news.index', 'data' => $latestNews, 'type' => 'news'],
-            ['title' => 'Pejabat Desa', 'route' => 'admin.village-officials.index', 'data' => $officials, 'type' => 'officials'],
+            
             ['title' => 'UMKM Terdaftar', 'route' => 'admin.umkm.index', 'data' => $umkm, 'type' => 'umkm'],
-            ['title' => 'Galeri Foto', 'route' => 'admin.galleries.index', 'data' => $gallery, 'type' => 'gallery'],
+            
         ] as $section)
         <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-md dark:border-gray-700 sm:p-6 dark:bg-gray-800">
             <div class="flex items-center justify-between mb-4">
@@ -42,17 +40,35 @@
                 @if ($section['type'] == 'gallery')
                     <div class="grid grid-cols-3 gap-4">
                         @foreach ($section['data'] as $photo)
-                            <img src="{{ Storage::url($photo->url) }}" class="rounded-lg object-cover w-full h-24">
+                            <img src="{{ Storage::url($photo->url ?? $photo->image ?? $photo->photo) }}" class="rounded-lg object-cover w-full h-24" alt="Gallery Image">
                         @endforeach
                     </div>
+                @elseif ($section['type'] == 'complaints')
+                    @forelse ($section['data'] as $complaint)
+                        <div class="flex items-center">
+                            @if ($complaint->evidence_file_path)
+                                <img src="{{ Storage::url($complaint->evidence_file_path) }}" class="w-12 h-12 rounded-lg object-cover mr-3" alt="Evidence Image">
+                            @else
+                                <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mr-3">
+                                    <img src="{{ asset('images/no-image.jpg') }}" class="w-12 h-12 rounded-lg object-cover" alt="No Image">
+                                </div>
+                            @endif
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white">{{ $complaint->title }}</h4>
+                                <p class="text-sm text-gray-500">{{ $complaint->reporter_name }} • {{ $complaint->created_at->diffForHumans() }}</p>
+                            </div>
+                        </div>
+                    @empty
+                        <p class="text-gray-500 dark:text-gray-400">Belum ada pengaduan</p>
+                    @endforelse
                 @else
                     @forelse ($section['data'] as $item)
                         <div class="flex items-center">
                             @if (isset($item->thumbnail) || isset($item->photo) || isset($item->image))
-                                <img src="{{ Storage::url($item->thumbnail ?? $item->photo ?? $item->image) }}" class="w-12 h-12 rounded-lg object-cover mr-3">
+                                <img src="{{ Storage::url($item->thumbnail ?? $item->photo ?? $item->image) }}" class="w-12 h-12 rounded-lg object-cover mr-3" alt="Item Image">
                             @else
-                                <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
-                                    <span class="text-gray-500">No Image</span>
+                                <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mr-3">
+                                    <span class="text-gray-500 text-xs">No Image</span>
                                 </div>
                             @endif
                             <div>

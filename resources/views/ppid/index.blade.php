@@ -17,17 +17,17 @@
     </div>
 
     <!-- Konten -->
-    <div class="container mx-auto px-4 py-32 relative">
+    <div class="container mx-auto px-4 py-10 relative">
         <div class="max-w-3xl animate-fade-up">
-            <h1 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">PPID Desa</h1>
-            <p class="text-xl text-gray-700 dark:text-green-200 leading-relaxed">
+            <h2 class="text-5lg font-bold text-gray-900 dark:text-white mb-6">PPID Desa</h1>
+            <p class="text-lg text-gray-700 dark:text-green-200 leading-relaxed">
                 Pejabat Pengelola Informasi dan Dokumentasi Desa - Mewujudkan keterbukaan informasi publik yang transparan dan akuntabel sesuai dengan UU No. 14 Tahun 2008.
             </p>
         </div>
     </div>
 
     <!-- Efek Gradient di Bawah -->
-    <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white dark:from-gray-900 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white dark:from-gray-900 to-transparent"></div>
 </div>
 
 

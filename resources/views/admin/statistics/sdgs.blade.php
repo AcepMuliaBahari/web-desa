@@ -12,7 +12,7 @@
             <div class="space-y-6">
                 <!-- Goals -->
                 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    @for ($i = 1; $i <= 17; $i++)
+                    @for ($i = 1; $i <= 3; $i++)
                         @php
                             $goal = collect($data->goals ?? [])->firstWhere('nomor', $i);
                         @endphp

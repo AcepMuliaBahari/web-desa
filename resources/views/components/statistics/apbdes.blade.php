@@ -9,7 +9,7 @@
             </div>
             
             <div class="grid grid-cols-2 gap-4">
-                <div class="p-3 bg-green-50/50 dark:bg-green-900/10 rounded-lg">
+                <!-- <div class="p-3 bg-green-50/50 dark:bg-green-900/10 rounded-lg">
                     <div class="text-lg font-semibold text-green-600 dark:text-green-400">
                         Rp {{ number_format($apbdesData['dana_desa'] ?? 0, 0, ',', '.') }}
                     </div>
@@ -20,7 +20,7 @@
                         Rp {{ number_format($apbdesData['pad'] ?? 0, 0, ',', '.') }}
                     </div>
                     <div class="text-xs text-gray-600 dark:text-gray-400">PAD</div>
-                </div>
+                </div> -->
             </div>
         </div>
     </x-statistics.card>
@@ -31,14 +31,14 @@
                 <div class="text-3xl font-bold text-red-600 dark:text-red-400">
                     Rp {{ number_format($apbdesData['belanja'] ?? 0, 0, ',', '.') }}
                 </div>
-                <div class="text-sm text-gray-600 dark:text-gray-400">Total Belanja</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Jumlah Belanja</div>
             </div>
             
             <div class="space-y-3">
                 @foreach([
-                    'belanja_pembangunan' => 'Pembangunan',
-                    'belanja_operasional' => 'Operasional',
-                    'belanja_takterduga' => 'Tak Terduga'
+                    'belanja_pembangunan' => 'Bidang Penyelenggaraan Pemerintah Desa',
+                    'belanja_operasional' => 'Bidang Pelaksanaan Pembangunan Desa ',
+                    'belanja_takterduga' => 'Bidang Pemberdayaan Masyarakat'
                 ] as $key => $label)
                 <div class="flex items-center justify-between">
                     <span class="text-sm text-gray-600 dark:text-gray-400">{{ $label }}</span>

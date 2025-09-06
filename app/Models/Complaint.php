@@ -9,21 +9,42 @@ class Complaint extends Model
 {
     protected $fillable = [
         'citizen_id',
+        'user_id',
+        'title',
+        'reporter_name',
+        'address',
+        'phone',
         'content',
+        'complaint_type',
+        'incident_location',
+        'incident_date',
+        'incident_place',
+        'incident_time',
         'status',
         'response',
-        'category'
+        'category',
+        'file_path',
+        'evidence_file_path',
+        'document_file_path'
     ];
 
     protected $casts = [
         'created_at' => 'datetime',
-        'updated_at' => 'datetime'
+        'updated_at' => 'datetime',
+        'incident_date' => 'date',
+        'incident_time' => 'datetime'
     ];
 
     // Relasi dengan Citizen
     public function citizen(): BelongsTo
     {
         return $this->belongsTo(Citizen::class);
+    }
+
+    // Relasi dengan User
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 
     // Scope untuk filter berdasarkan status

@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <!-- Foto Kepala Desa -->
             <div class="relative animate-fade-right">
-                <img src="{{ asset('images/kades/logo-b.png') }}" alt="Kepala Desa" class="rounded-lg shadow-xl w-full max-w-md mx-auto">
+                <img src="{{ asset('images/sambutan.jpeg') }}" alt="Kepala Desa" class="rounded-lg shadow-xl w-full max-w-md mx-auto">
                 <div class="absolute bottom-4 left-4 right-4 bg-black/60 p-4 rounded-lg">
                     <h3 class="text-white font-semibold">AGUN PRIA SANTOSA,A.MA.PD.</h3>
                     <p class="text-gray-200 text-sm">Kepala Desa Pasirpanjang</p>

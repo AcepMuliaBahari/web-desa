@@ -18,7 +18,7 @@
                     </div>
                     <div>
                         <p class="text-blue-600 dark:text-blue-400 text-sm font-medium">Total Penduduk</p>
-                        <h3 class="text-3xl font-bold text-gray-800 dark:text-white mt-1">2,567</h3>
+                        <h3 class="text-3xl font-bold text-gray-800 dark:text-white mt-1">3,628</h3>
                         <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Jiwa</p>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                     </div>
                     <div>
                         <p class="text-purple-600 dark:text-purple-400 text-sm font-medium">Laki-laki</p>
-                        <h3 class="text-3xl font-bold text-gray-800 dark:text-white mt-1">1,289</h3>
+                        <h3 class="text-3xl font-bold text-gray-800 dark:text-white mt-1">1,831</h3>
                         <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Jiwa</p>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                     </div>
                     <div>
                         <p class="text-pink-600 dark:text-pink-400 text-sm font-medium">Perempuan</p>
-                        <h3 class="text-3xl font-bold text-gray-800 dark:text-white mt-1">1,278</h3>
+                        <h3 class="text-3xl font-bold text-gray-800 dark:text-white mt-1">1,797</h3>
                         <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Jiwa</p>
                     </div>
                 </div>
