@@ -216,20 +216,7 @@
         </div>
     </div>
 </li>
-<!-- Pengaduan -->
-<li class="relative group">
-    <a href="{{ route('pengaduan.index') }}"
-       class="flex items-center px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200
-              {{ request()->routeIs('pengaduan.index') ? 'text-primary-600 dark:text-primary-400 font-medium' : 'text-gray-700 dark:text-gray-300' }}">
-        <i class="fas fa-comments mr-2"></i>
-        <span>Pengaduan</span>
-        <svg class="w-4 h-4 ml-2 text-gray-400 dark:text-gray-500"
-             fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2H7l-4 4V10a2 2 0 012-2h2" />
-        </svg>
-    </a>
-</li>
+
 
 
 <!-- PPID -->
@@ -281,6 +268,21 @@
             </a>
         </div>
     </div>
+</li>
+
+<!-- Pengaduan -->
+<li class="relative group">
+    <a href="{{ route('pengaduan.index') }}"
+       class="flex items-center px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200
+              {{ request()->routeIs('pengaduan.index') ? 'text-primary-600 dark:text-primary-400 font-medium' : 'text-gray-700 dark:text-gray-300' }}">
+        <i class="fas fa-comments mr-2"></i>
+        <span>Pengaduan</span>
+        <svg class="w-4 h-4 ml-2 text-gray-400 dark:text-gray-500"
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2H7l-4 4V10a2 2 0 012-2h2" />
+        </svg>
+    </a>
 </li>
 
                                 <!-- Auth Buttons -->

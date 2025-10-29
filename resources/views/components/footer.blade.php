@@ -96,7 +96,7 @@
                         </div>
                         <div class="ml-4">
                             <p class="text-sm text-gray-500 dark:text-gray-400">Email</p>
-                            <p class="text-gray-700 dark:text-gray-200">desa@pasirpanjang.desa.id</p>
+                            <p class="text-gray-700 dark:text-gray-200">desapasirpanjang@gmail.com</p>
                         </div>
                     </div>
 

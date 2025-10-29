@@ -1,0 +1,8 @@
+.git
+.github
+.env
+.gitignore
+node_modules
+vendor
+Dockerfile
+docker-entrypoint.sh
