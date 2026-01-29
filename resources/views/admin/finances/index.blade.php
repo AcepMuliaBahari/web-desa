@@ -3,6 +3,7 @@
 @section('content')
 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
     <x-alert />
+    <x-delete-modal />
        <!-- Tambahkan setelah header dan sebelum tabel -->
        <div class="grid grid-cols-1 gap-4 p-4 mb-4 md:grid-cols-3">
         <!-- Saldo -->
@@ -162,14 +163,10 @@
                                class="px-2 py-1 text-xs text-white bg-yellow-600 rounded-lg hover:bg-yellow-700">
                                 Edit
                             </a>
-                            <form action="{{ route('admin.finances.destroy', $finance) }}" method="POST" class="inline" 
-                                  onsubmit="return confirm('Yakin hapus laporan ini?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="px-2 py-1 text-xs text-white bg-red-600 rounded-lg hover:bg-red-700">
-                                    Hapus
-                                </button>
-                            </form>
+                            <button type="button" onclick="openDeleteModal('{{ route('admin.finances.destroy', $finance) }}', '{{ $finance->title }}')" 
+                               class="px-2 py-1 text-xs text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors duration-200">
+                                Hapus
+                            </button>
                         </div>
                     </td>
                 </tr>

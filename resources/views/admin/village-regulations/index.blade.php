@@ -3,6 +3,7 @@
 @section('content')
 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
     <x-alert />
+    <x-delete-modal />
     
     <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
         <div class="w-full md:w-1/2">
@@ -93,13 +94,10 @@
                                class="px-2 py-1 text-xs text-white bg-yellow-600 rounded-lg hover:bg-yellow-700">
                                 Edit
                             </a>
-                            <form action="{{ route('admin.village-regulations.destroy', $regulation->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus regulasi ini?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="px-2 py-1 text-sm text-white bg-red-600 rounded-lg hover:bg-red-700">
-                                    Hapus
-                                </button>
-                            </form>
+                            <button type="button" onclick="openDeleteModal('{{ route('admin.village-regulations.destroy', $regulation->id) }}', '{{ $regulation->title }}')" 
+                               class="px-2 py-1 text-sm text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors duration-200">
+                                Hapus
+                            </button>
                             
                         </div>
                     </td>

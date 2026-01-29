@@ -2,6 +2,7 @@
 
 @section('content')
 <x-alert />
+<x-delete-modal />
 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
 
     
@@ -46,21 +47,17 @@
                     <td class="px-4 py-3">
                         <div class="flex items-center space-x-2">
                             <a href="{{ route('admin.news.show', $item) }}" 
-                               class="px-2 py-1 text-xs text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                               class="px-2 py-1 text-xs text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-200">
                                 Detail
                             </a>
                             <a href="{{ route('admin.news.edit', $item) }}" 
-                               class="px-2 py-1 text-xs text-white bg-yellow-600 rounded-lg hover:bg-yellow-700">
+                               class="px-2 py-1 text-xs text-white bg-yellow-600 rounded-lg hover:bg-yellow-700 transition-colors duration-200">
                                 Edit
                             </a>
-                            <form action="{{ route('admin.news.destroy', $item) }}" method="POST" class="inline" 
-                                  onsubmit="return confirm('Yakin hapus berita ini?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="px-2 py-1 text-xs text-white bg-red-600 rounded-lg hover:bg-red-700">
-                                    Hapus
-                                </button>
-                            </form>
+                            <button type="button" onclick="openDeleteModal('{{ route('admin.news.destroy', $item) }}', '{{ $item->title }}')" 
+                               class="px-2 py-1 text-xs text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors duration-200">
+                                Hapus
+                            </button>
                         </div>
                     </td>
                 </tr>

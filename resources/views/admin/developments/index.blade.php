@@ -2,6 +2,7 @@
 
 @section('content')
 <x-alert />
+<x-delete-modal />
 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
   
     
@@ -90,14 +91,10 @@
                                class="px-2 py-1 text-xs text-white bg-yellow-600 rounded-lg hover:bg-yellow-700">
                                 Edit
                             </a>
-                            <form action="{{ route('admin.developments.destroy', $development) }}" method="POST" class="inline" 
-                                  onsubmit="return confirm('Yakin hapus pembangunan ini?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="px-2 py-1 text-xs text-white bg-red-600 rounded-lg hover:bg-red-700">
-                                    Hapus
-                                </button>
-                            </form>
+                            <button type="button" onclick="openDeleteModal('{{ route('admin.developments.destroy', $development) }}', '{{ $development->title }}')" 
+                               class="px-2 py-1 text-xs text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors duration-200">
+                                Hapus
+                            </button>
                         </div>
                     </td>
                 </tr>

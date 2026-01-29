@@ -2,6 +2,7 @@
 
 @section('content')
 <x-alert />
+<x-delete-modal />
 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
 
     
@@ -92,15 +93,10 @@
                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                     Edit
                                 </a>
-                                <form action="{{ route('admin.regulations.destroy', $regulation) }}" 
-                                      method="POST" 
-                                      onsubmit="return confirm('Apakah Anda yakin ingin menghapus regulasi ini?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline">
-                                        Hapus
-                                    </button>
-                                </form>
+                                <button type="button" onclick="openDeleteModal('{{ route('admin.regulations.destroy', $regulation) }}', '{{ $regulation->title }}')" 
+                                    class="font-medium text-red-600 dark:text-red-500 hover:underline">
+                                    Hapus
+                                </button>
                             </div>
                         </td>
                     </tr>
