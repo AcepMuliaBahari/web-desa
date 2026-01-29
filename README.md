@@ -62,4 +62,17 @@ Kalender acara pariwisata.
 Galeri Multimedia:
 Foto dan video kegiatan desa.
 Promosi seni budaya lokal.
-
+7. Teknologi Pendukung
+Multi Bahasa: Bahasa Indonesia sebagai default, dengan opsi bahasa daerah.
+Responsive Design: Tampilan yang optimal di desktop, tablet, dan ponsel.
+Manajemen Admin:
+Hak akses untuk berbagai peran (Admin, Kepala Desa, Sekretaris, dll.).
+Keamanan:
+Sistem autentikasi 2FA untuk admin.
+Enkripsi data penting.
+Tahapan Implementasi:
+Desain Frontend:
+Framework: Tailwind CSS atau Bootstrap.
+Komponen reusable untuk berita, galeri, formulir, dll.
+Database:
+MySQL untuk data utama.
