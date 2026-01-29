@@ -4,6 +4,9 @@
 <div class="container px-6 mx-auto p-5">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">Kelola Pengaduan</h1>
+        <!-- <a href="{{ route('admin.complaints.print') }}" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300">
+            Cetak Laporan
+        </a> -->
         <div class="flex space-x-2">
             <a href="{{ route('admin.complaints.index') }}"
                 class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 {{ request('status') === null ? 'bg-blue-700' : 'bg-blue-600' }}">
@@ -24,11 +27,7 @@
         </div>
     </div>
 
-    @if(session('success'))
-        <div class="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
-            {{ session('success') }}
-        </div>
-    @endif
+
 
     <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
         <div class="overflow-x-auto">

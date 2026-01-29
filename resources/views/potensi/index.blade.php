@@ -49,13 +49,13 @@
                         <i class="fas fa-building mr-2"></i>
                         Pembangunan
                     </a>
-                    <a href="#pengaduan"
+                    <!-- <a href="#pengaduan"
                        class="group flex items-center px-6 py-4 text-sm font-medium transition-all duration-200
                               border-b-2 border-transparent hover:text-green-600 hover:border-green-600
                               dark:hover:text-green-400 dark:hover:border-green-400">
                         <i class="fas fa-comment-alt mr-2"></i>
                         Pengaduan
-                    </a>
+                    </a> -->
                 </nav>
             </div>
         </div>

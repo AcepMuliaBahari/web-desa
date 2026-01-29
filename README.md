@@ -1,5 +1,5 @@
- Fitur-Fitur Website Desa:
- otentikasi 3 role admin,staff,user
+ buatkan web Desa Pasirpanjang Kec salem kabupaten brebes Fitur-Fitur Website Desa:
+ otentikasi 3 role admin,user
  memiliki dashboard dengan berbeda fitur
 1. Definisi Website Desa
 Halaman Utama:
@@ -28,9 +28,9 @@ Dashboard admin untuk mengelola tanggapan.
 Forum Diskusi Warga:
 Ruang diskusi online untuk warga.
 Moderator dari lembaga desa.
-Notifikasi dan SMS Gateway:
+
 Notifikasi otomatis untuk pengumuman penting.
-SMS untuk warga yang tidak memiliki akses internet.
+
 4. Alat Monitoring Perkembangan Sumber Daya Desa
 Dashboard Monitoring:
 Grafik data sumber daya desa (penduduk, lahan, keuangan).
@@ -62,17 +62,4 @@ Kalender acara pariwisata.
 Galeri Multimedia:
 Foto dan video kegiatan desa.
 Promosi seni budaya lokal.
-7. Teknologi Pendukung
-Multi Bahasa: Bahasa Indonesia sebagai default, dengan opsi bahasa daerah.
-Responsive Design: Tampilan yang optimal di desktop, tablet, dan ponsel.
-Manajemen Admin:
-Hak akses untuk berbagai peran (Admin, Kepala Desa, Sekretaris, dll.).
-Keamanan:
-Sistem autentikasi 2FA untuk admin.
-Enkripsi data penting.
-Tahapan Implementasi:
-Desain Frontend:
-Framework: Tailwind CSS atau Bootstrap.
-Komponen reusable untuk berita, galeri, formulir, dll.
-Database:
-MySQL untuk data utama.
+

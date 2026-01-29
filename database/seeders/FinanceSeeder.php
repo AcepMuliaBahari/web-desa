@@ -12,33 +12,33 @@ class FinanceSeeder extends Seeder
         $finances = [
             [
                 'date' => '2024-03-01',
-                'title' => 'Dana Desa Tahap 1',
+                'title' => 'Bidang Penyelenggaraan Pemerintah Desa ',
                 'type' => 'income',
-                'amount' => 100000000,
-                'kategori' => 'Bantuan',
+                'amount' => 492584000,
+                'kategori' => 'BPenyelenggaraan ',
                 'description' => 'Transfer dari Kementerian Desa'
             ],
             [
                 'date' => '2024-03-05',
-                'title' => 'Pembayaran Listrik Kantor Desa',
+                'title' => 'Bidang Pelaksanaan Pembangunan Desa',
                 'type' => 'expense',
-                'amount' => 500000,
+                'amount' => 813700000,
                 'kategori' => 'Operasional',
                 'description' => 'Pembayaran listrik bulan Maret'
             ],
             [
                 'date' => '2024-03-10',
-                'title' => 'Perbaikan Jalan Desa',
+                'title' => 'Bidang Pembinaan Kemasyarakatan ',
                 'type' => 'expense',
-                'amount' => 25000000,
+                'amount' => 35750000,
                 'kategori' => 'Pembangunan',
                 'description' => 'Perbaikan jalan RT 03'
             ],
             [
                 'date' => '2024-03-15',
-                'title' => 'Bantuan Sosial',
+                'title' => 'Bidang Pemberdayaan Masyarakat ',
                 'type' => 'expense',
-                'amount' => 10000000,
+                'amount' => 138000000,
                 'kategori' => 'Bantuan',
                 'description' => 'Bantuan untuk warga kurang mampu'
             ],

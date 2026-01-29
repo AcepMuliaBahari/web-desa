@@ -45,7 +45,7 @@
                 </li>
 
                 {{-- Data Penduduk --}}
-                <li>
+                <!-- <li>
                     <button type="button" 
                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('admin.citizens.*') ? 'bg-blue-100 dark:bg-blue-900 border-l-4 border-blue-600' : '' }}" 
                         aria-controls="dropdown-penduduk" 
@@ -72,7 +72,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
                 {{-- Surat Menyurat --}}
 
@@ -109,7 +109,7 @@
                 </li>
 
                 {{-- Keuangan --}}
-                <li>
+                <!-- <li>
                     <button type="button" 
                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('admin.finances.*') ? 'bg-blue-100 dark:bg-blue-900 border-l-4 border-blue-600' : '' }}" 
                         aria-controls="dropdown-keuangan" 
@@ -136,7 +136,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
                 {{-- Berita --}}
                 <li>
@@ -196,12 +196,12 @@
                                 Pejabat Desa
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="{{ route('admin.village-profile.structure') }}" 
                                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('admin.village-profile.structure') ? 'bg-blue-50 dark:bg-blue-800' : '' }}">
                                 Struktur Organisasi
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
 
@@ -238,7 +238,7 @@
                 {{-- Layanan Publik --}}
 
                 {{-- Organisasi --}}
-                <li>
+                <!-- <li>
                     <button type="button" 
                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('admin.organizations.*') ? 'bg-blue-100 dark:bg-blue-900 border-l-4 border-blue-600' : '' }}" 
                         aria-controls="dropdown-organisasi" 
@@ -265,7 +265,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
                 {{-- Event/Kegiatan --}}
                 <li>
@@ -276,7 +276,7 @@
                         <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white {{ request()->routeIs('admin.events.*') ? 'text-blue-600 dark:text-blue-400' : '' }}" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
                         </svg>
-                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Event</span>
+                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Kegiatan</span>
                         <svg class="w-3 h-3 {{ request()->routeIs('admin.events.*') ? 'rotate-180' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
@@ -285,13 +285,13 @@
                         <li>
                             <a href="{{ route('admin.events.index') }}" 
                                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('admin.events.index') ? 'bg-blue-50 dark:bg-blue-800' : '' }}">
-                                Daftar Event
+                                Daftar Kegiatan
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('admin.events.create') }}" 
                                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('admin.events.create') ? 'bg-blue-50 dark:bg-blue-800' : '' }}">
-                                Tambah Event
+                                Tambah Kegiatan
                             </a>
                         </li>
                     </ul>

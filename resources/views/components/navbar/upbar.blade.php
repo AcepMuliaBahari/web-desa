@@ -47,10 +47,10 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 100%;
-        height: 15vh;
-        min-height: 100px;
-        max-height: 150px;
+        width: 100%; 
+        height: 10vh;
+        min-height: 60px;
+        max-height: 100px;
     }
 
     .waves {
@@ -142,12 +142,12 @@
             </div>
         </div>
 
-        <section class="relative z-10 text-center space-y-2 px-3 lg:px-5 py-10">
+        <section class="relative z-10 text-center space-y-2 px-3 lg:px-5 py-6">
             <a href="{{ route('desa') }}">
                 <figure>
-                    <img src="{{ asset('images/logo-b.png') }}" alt="Logo Desa Pasirpanjang" class="h-20 mx-auto pb-2 ">
+                    <img src="{{ asset('images/logo-b.png') }}" alt="Logo Desa Pasirpanjang" class="h-16 mx-auto pb-2 ">
                 </figure>
-                <span class="text-h2 block">{{ config('app.name') }} </span>
+                <span class="text-h1 block">{{ config('app.name') }} </span>
                 <p class="">
                     Kec. Salem, Kab. Brebes, Provinsi Jawa Tengah
                 </p>

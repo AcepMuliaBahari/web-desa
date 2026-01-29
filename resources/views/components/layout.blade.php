@@ -39,7 +39,7 @@
         </div>
 
         <!-- Preloader -->
-       @include('components.loader')
+  
 
 
         <!-- Footer -->

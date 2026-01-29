@@ -3,7 +3,6 @@
 @section('content')
  <x-alert />
    <x-toast/>
-
 <div class="container px-6 mx-auto grid gap-6 p-5">
     <div class="flex items-center justify-between">
         <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">Pengaduan Saya</h1>

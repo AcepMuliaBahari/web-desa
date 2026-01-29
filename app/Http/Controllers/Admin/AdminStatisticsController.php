@@ -53,7 +53,7 @@ class AdminStatisticsController extends Controller
     {
         $data = Apbdes::where('tahun', date('Y'))->first();
         return view('admin.statistics.apbdes', compact('data'));
-    }
+    } 
 
     public function updateApbdes(Request $request)
     {
@@ -70,7 +70,12 @@ class AdminStatisticsController extends Controller
         ]);
 
         if ($request->hasFile('dokumen')) {
-            $path = $request->file('dokumen')->store('public/documents');
+            // Hapus dokumen lama jika ada
+            $apbdes = Apbdes::where('tahun', date('Y'))->first();
+            if ($apbdes && $apbdes->dokumen_url) {
+                Storage::disk('public')->delete(str_replace('/storage/', '', $apbdes->dokumen_url));
+            }
+            $path = $request->file('dokumen')->store('documents', 'public');
             $validated['dokumen_url'] = Storage::url($path);
         } 
 

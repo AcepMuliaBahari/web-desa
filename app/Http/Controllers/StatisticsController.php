@@ -29,17 +29,17 @@ class StatisticsController extends Controller
         $totalPenduduk = $populationData->laki_laki + $populationData->perempuan; // Calculate total population
 
         // Fetching Data APBDes from the Apbdes model
-        $apbdesData = Apbdes::where('tahun', date('Y'))->first();
+        $apbdes = Apbdes::where('tahun', date('Y'))->first();
         $apbdesData = [
-            'pendapatan' => $apbdesData->pendapatan ?? 0,
-            'dana_desa' => $apbdesData->dana_desa ?? 0,
-            'pad' => $apbdesData->pad ?? 0,
-            'bantuan' => $apbdesData->bantuan ?? 0,
-            'belanja' => $apbdesData->belanja ?? 0,
-            'belanja_pembangunan' => $apbdesData->belanja_pembangunan ?? 0,
-            'belanja_operasional' => $apbdesData->belanja_operasional ?? 0,
-            'belanja_takterduga' => $apbdesData->belanja_takterduga ?? 0,
-            'dokumen_url' => $apbdesData->dokumen_url ?? null
+            'pendapatan' => $apbdes->pendapatan ?? 0,
+            'dana_desa' => $apbdes->dana_desa ?? 0,
+            'pad' => $apbdes->pad ?? 0,
+            'bantuan' => $apbdes->bantuan ?? 0, 
+            'belanja' => $apbdes->belanja ?? 0,
+            'belanja_pembangunan' => $apbdes->belanja_pembangunan ?? 0,
+            'belanja_operasional' => $apbdes->belanja_operasional ?? 0,
+            'belanja_takterduga' => $apbdes->belanja_takterduga ?? 0,
+            'dokumen_url' => $apbdes->dokumen_url ?? null
         ];
 
         // Fetching Data IDM from the Idm model
@@ -51,7 +51,7 @@ class StatisticsController extends Controller
             'ekonomi' => $statusIdmData->ekonomi ?? 0,
             'lingkungan' => $statusIdmData->lingkungan ?? 0
         ];
-
+ 
 
 
 

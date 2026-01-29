@@ -55,7 +55,7 @@ class UmkmController extends Controller
 
         return redirect()
             ->route('admin.umkm.index')
-            ->with('success', 'UMKM berhasil ditambahkan');
+            ->with('toast', 'UMKM berhasil ditambahkan');
     }
 
     public function show(Umkm $umkm)

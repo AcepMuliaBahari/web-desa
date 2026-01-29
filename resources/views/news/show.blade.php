@@ -53,6 +53,14 @@
                                     <i class="far fa-folder mr-2"></i>
                                     {{ $news->category }}
                                 </span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span>
+                                <span class="flex items-center">
+                                    <i class="far fa-user mr-2"></i>
+                                    {{ $news->user->name ?? 'Admin Desa' }}
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="far fa-clock mr-2"></i> {{ ceil(str_word_count(strip_tags($news->content)) / 200) }} menit baca
+                                </span>
                             </div>
                             <h1 class="text-3xl md:text-4xl font-bold text-white leading-tight">
                                 {{ $news->title }}
@@ -94,9 +102,10 @@
                 </article>
 
                 <!-- Navigation Button -->
-                <div class="mt-8 flex justify-center">
+                <div class="mt-12">
+                    <!-- Back Button -->
                     <a href="{{ route('news.index') }}"
-                       class="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all duration-200 group">
+                       class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 group shadow-lg hover:shadow-xl">
                         <i class="fas fa-arrow-left mr-2 transform group-hover:-translate-x-1 transition-transform"></i>
                         Kembali ke Daftar Berita
                     </a>

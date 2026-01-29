@@ -43,6 +43,13 @@
                         <i class="fas fa-history mr-2"></i>
                         Sejarah
                     </a>
+                    <a href="#sotk"
+                       class="group flex items-center px-6 py-4 text-sm font-medium transition-all duration-200
+                              border-b-2 border-transparent hover:text-blue-600 hover:border-blue-600
+                              dark:hover:text-blue-400 dark:hover:border-blue-400">
+                        <i class="fas fa-users mr-2 text-blue-600 dark:text-blue-400"></i>
+                        SOTK
+                    </a>
                     <a href="#lokasi"
                        class="group flex items-center px-6 py-4 text-sm font-medium transition-all duration-200
                               border-b-2 border-transparent hover:text-blue-600 hover:border-blue-600
@@ -79,6 +86,12 @@
                         <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Sejarah</h2>
                     </div>
                     @include('components.profile.sejarah')
+                </div>
+            </section>
+            <!-- SOTK Section -->
+            <section id="sotk" class="mb-24 scroll-mt-20 animate-fade-up">
+                <div class="max-w-7xl mx-auto">
+                    @include('components.home.organization')
                 </div>
             </section>
 

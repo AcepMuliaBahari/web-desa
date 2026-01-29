@@ -22,19 +22,37 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
+    // public function store(LoginRequest $request): RedirectResponse
+    // {
+    //     $request->authenticate();
+    //     $request->session()->regenerate();
+
+    //     if ($request->user()->role === 'admin') {
+    //         return redirect()->intended(route('admin.dashboard'));
+    //     } elseif ($request->user()->role === 'user') {
+    //         return redirect()->intended(route('user.dashboard'));
+    //     }
+
+    //     return redirect()->intended(route('home')->with('success', 'Login berhasil! Selamat datang kembali.'));
+      
+    // }
     public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
-        $request->session()->regenerate();
+{
+    $request->authenticate();
+    $request->session()->regenerate();
 
-        if ($request->user()->role === 'admin') {
-            return redirect()->intended(route('admin.dashboard'));
-        } elseif ($request->user()->role === 'user') {
-            return redirect()->intended(route('user.dashboard'));
-        }
-
-        return redirect()->intended(route('home'));
+    // Tentukan route berdasarkan role
+    if ($request->user()->role === 'admin') {
+        $url = route('admin.dashboard');
+    } elseif ($request->user()->role === 'user') {
+        $url = route('user.dashboard');
+    } else {
+        $url = route('home');
     }
+
+    // Mengirim pesan flash 'toast'
+    return redirect()->intended($url)->with('toast', 'Login berhasil! Selamat datang kembali.');
+}
 
     /**
      * Destroy an authenticated session.

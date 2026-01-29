@@ -59,12 +59,10 @@
 
 @if($apbdesData['dokumen_url'] ?? false)
 <div class="mt-6">
-    <x-statistics.card title="Dokumen APBDes" icon="file-pdf" color="blue">
-        <a href="{{ $apbdesData['dokumen_url'] }}" 
-           class="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors duration-200">
-            <i class="fas fa-download mr-2"></i>
-            Download Dokumen APBDes
-        </a>
-    </x-statistics.card>
+    <a href="{{ url($apbdesData['dokumen_url']) }}" 
+       target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors duration-200">
+        <i class="fas fa-download mr-2"></i>
+        Download Dokumen APBDes
+    </a>
 </div>
 @endif

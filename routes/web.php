@@ -44,7 +44,8 @@ Route::get('/', function () {
 })->name('desa');
 
 Route::get('/profil', function () {
-    return view('profile.index');
+    $officials = VillageOfficialController::getActiveOfficials();
+    return view('profile.index', compact('officials'));
 })->name('profile');
 
 // PPID Routes
@@ -140,6 +141,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('complaints', AdminComplaintController::class);
     Route::post('complaints/{complaint}/respond', [AdminComplaintController::class, 'respond'])
         ->name('complaints.respond');
+    Route::get('complaints/print', [AdminComplaintController::class, 'print'])->name('complaints.print');
+    Route::get('complaints/{complaint}/print', [AdminComplaintController::class, 'print'])->name('complaints.print.single');
 
 });
 

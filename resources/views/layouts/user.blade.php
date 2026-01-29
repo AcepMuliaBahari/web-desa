@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+ <x-alert />
+   <x-toast/><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,7 +36,7 @@
             <!-- Main Content -->
             @yield('content')
         </div>
-    </div>
+    </div> 
 
     @stack('scripts')
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>

@@ -51,62 +51,52 @@
             <!-- Data Penduduk Section -->
             <section id="data-penduduk" class="mb-24 scroll-mt-20">
                 <div class="max-w-7xl mx-auto">
-                    <div class="flex items-center mb-8">
+                    <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4">
                             <i class="fas fa-users text-2xl text-blue-600 dark:text-blue-400"></i>
                         </div>
                         <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Data Penduduk</h2>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
-                        <div class="p-6">
-                            @include('components.statistics.data-penduduk')
-                        </div>
-                    </div>
+                    @include('components.statistics.data-penduduk')
                 </div>
             </section>
 
             <!-- APBDes Section -->
             <section id="apbdes" class="mb-24 scroll-mt-20">
                 <div class="max-w-7xl mx-auto">
-                    <div class="flex items-center mb-8">
+                    <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
                             <i class="fas fa-chart-pie text-2xl text-green-600 dark:text-green-400"></i>
                         </div>
                         <h2 class="text-3xl font-bold text-gray-800 dark:text-white">APBDes</h2>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
-                        @include('components.statistics.apbdes')
-                    </div>
+                    @include('components.statistics.apbdes')
                 </div>
-            </section>
+            </section> 
 
             <!-- Status IDM Section -->
             <section id="status-idm" class="mb-24 scroll-mt-20">
                 <div class="max-w-7xl mx-auto">
-                    <div class="flex items-center mb-8">
+                    <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-4">
                             <i class="fas fa-chart-bar text-2xl text-purple-600 dark:text-purple-400"></i>
                         </div>
                         <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Status IDM</h2>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
-                        @include('components.statistics.status-idm')
-                    </div>
+                    @include('components.statistics.status-idm')
                 </div>
             </section>
 
             <!-- Status SDGs Section -->
             <section id="status-sdgs" class="mb-24 scroll-mt-20">
                 <div class="max-w-7xl mx-auto">
-                    <div class="flex items-center mb-8">
+                    <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900 flex items-center justify-center mr-4">
                             <i class="fas fa-globe text-2xl text-orange-600 dark:text-orange-400"></i>
                         </div>
                         <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Status SDGs</h2>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
-                        @include('components.statistics.status-sdgs')
-                    </div>
+                    @include('components.statistics.status-sdgs')
                 </div>
             </section>
         </div>

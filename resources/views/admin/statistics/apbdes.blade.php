@@ -72,7 +72,7 @@
                     <input type="number" name="belanja_takterduga" value="{{ old('belanja_takterduga', $data->belanja_takterduga ?? 0) }}"
                         class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
                 </div>
-
+ 
                 <!-- Upload Dokumen -->
                 <div class="col-span-2">
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-400">

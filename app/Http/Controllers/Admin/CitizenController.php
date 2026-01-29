@@ -9,7 +9,6 @@ use App\Http\Requests\CitizenRequest;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CitizensExport;
 use App\Imports\CitizensImport;
-use PDF;
 
 class CitizenController extends Controller
 {
@@ -148,22 +147,5 @@ class CitizenController extends Controller
         } catch (\Exception $e) {
             return redirect()->route('admin.citizens.index')->with('error', 'Gagal import data: ' . $e->getMessage());
         }
-    }
-
-    public function print()
-    {
-        $citizens = Citizen::all();
-        $pdf = PDF::loadView('admin.citizens.print', compact('citizens'));
-        
-        // Atur orientasi landscape dan opsi lainnya
-        $pdf->setPaper('a4', 'landscape');
-        $pdf->setOptions([
-            'dpi' => 150,
-            'defaultFont' => 'sans-serif',
-            'isHtml5ParserEnabled' => true,
-            'isRemoteEnabled' => true
-        ]);
-
-        return $pdf->stream('data-penduduk-' . now()->format('Y-m-d') . '.pdf');
     }
 } 

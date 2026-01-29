@@ -131,9 +131,7 @@ public function updateUser(Request $request, Complaint $complaint)
         'complaint_type' => 'required|string',
         'incident_location' => 'required|string|max:255',
         'incident_date' => 'required|date',
-        'incident_time' => 'nullable|date_format:H:i',
-        'evidence_file' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
-        'document_file' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
+        'incident_time' => 'nullable|date_format:H:i'
     ]);
 
     if ($request->hasFile('evidence_file')) {
@@ -180,9 +178,6 @@ public function updateUser(Request $request, Complaint $complaint)
             ->with('success', 'Pengaduan Anda berhasil dihapus.');
     }
 }
-
-
-
 
 
 }

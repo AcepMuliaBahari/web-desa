@@ -47,7 +47,7 @@ class OrganizationController extends Controller
         
         Organization::create($data);
         return redirect()->route('admin.organizations.index')
-            ->with('success', 'Organisasi berhasil ditambahkan');
+            ->with('toast', 'Organisasi berhasil ditambahkan');
     }
 
     public function show(Organization $organization)
