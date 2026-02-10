@@ -396,7 +396,7 @@
                         <li>
                             <a href="{{ route('admin.statistics.idm') }}" 
                                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('admin.developments.index') ? 'bg-blue-50 dark:bg-blue-800' : '' }}">
-                                Status IBM
+                                Status IDM
                             </a>
                         </li>
                         <li>

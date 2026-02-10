@@ -22,7 +22,7 @@
  
 <body class="bg-gray-50 dark:bg-gray-900">
   <x-alert />
-   <x-toast/>
+  <x-toast/>
 
     @include('layouts.admin.partials.navbar')
     @include('layouts.admin.partials.sidebar')

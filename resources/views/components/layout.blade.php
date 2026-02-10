@@ -18,6 +18,8 @@
 </head>
 
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200">
+      <x-alert />
+  <x-toast/>    
     <div class="min-h-screen flex flex-col">
         <!-- Upbar Section - Only show on homepage -->
         @if(request()->routeIs('desa'))
