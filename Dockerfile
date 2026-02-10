@@ -34,7 +34,8 @@ COPY composer.json composer.lock ./
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 COPY package.json package-lock.json ./
 RUN npm install && npm run build
-
+# Ubah port Apache dari 80 ke 8080 agar sesuai dengan standar Cloud Run
+RUN sed -i 's/80/8080/g' /etc/apache2/ports.conf
 # 9. Salin sisa kode aplikasi
 COPY . .
 
