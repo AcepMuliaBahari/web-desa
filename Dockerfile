@@ -47,8 +47,9 @@ RUN npm run build
 RUN composer dump-autoload --optimize --no-dev
 
 # 11. Konfigurasi Port untuk Cloud Run
-# Mengubah default port Apache dari 80 ke 8080
-RUN sed -i 's/80/8080/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
+# Mengubah port 80 menjadi 8080 secara aman
+RUN sed -i 's/:80/:8080/g' /etc/apache2/sites-available/000-default.conf
+RUN sed -i 's/Listen 80/Listen 8080/g' /etc/apache2/ports.conf
 
 # 12. Setel kepemilikan file & izin folder
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
